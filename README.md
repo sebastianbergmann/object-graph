@@ -31,4 +31,6 @@ $writer  = new DotWriter;
 $writer->write(__DIR__ . '/graph.dot', $builder->build($cart));
 ```
 
+    dot -Tpng graph.dot > graph.png
+
 ![Screenshot](screenshot.png)
