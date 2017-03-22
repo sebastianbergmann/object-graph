@@ -29,7 +29,7 @@ EOT;
 
             foreach ($node->getAttributes() as $name => $value) {
                 if ($value instanceof NodeReference) {
-                    $value = 'Object #' . $value->getId();
+                    $value = '#' . $value->getId();
                 } elseif (is_array($value)) {
                     $value = $this->arrayToString($value);
                 } else {
@@ -84,7 +84,7 @@ EOT;
 
         foreach ($array as $key => $value) {
             if ($value instanceof NodeReference) {
-                $value = 'Object #' . $value->getId();
+                $value = '#' . $value->getId();
             } elseif (is_array($value)) {
                 $value = $this->arrayToString($value);
             } else {
