@@ -18,19 +18,13 @@ If you only need this library during development, for instance to run your proje
 
 ```php
 <?php
-use SebastianBergmann\ObjectGraph\Builder;
-use SebastianBergmann\ObjectGraph\DotWriter;
+use function SebastianBergmann\ObjectGraph\object_graph_dump;
 
 $cart = new ShoppingCart;
 $cart->add(new ShoppingCartItem('Foo', new Money(123, new Currency('EUR')), 1));
 $cart->add(new ShoppingCartItem('Bar', new Money(456, new Currency('EUR')), 1));
 
-$builder = new Builder;
-$writer  = new DotWriter;
-
-$writer->write(__DIR__ . '/graph.dot', $builder->build($cart));
+object_graph_dump('graph.png', $cart);
 ```
-
-    dot -Tpng graph.dot > graph.png
 
 ![Screenshot](screenshot.png)

@@ -26,6 +26,9 @@
   "autoload-dev": {
     "classmap": [
       "tests/_fixture/"
+    ],
+    "files": [
+      "src/functions.php"
     ]
   },
     "extra": {
