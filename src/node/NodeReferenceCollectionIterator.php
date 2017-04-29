@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of object-graph.
+ * This file is part of sebastian/object-graph.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -36,7 +36,7 @@ final class NodeReferenceCollectionIterator implements \Iterator
 
     public function valid(): bool
     {
-        return $this->position < count($this->elements);
+        return $this->position < \count($this->elements);
     }
 
     public function key(): int

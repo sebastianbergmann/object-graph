@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of object-graph.
+ * This file is part of sebastian/object-graph.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *

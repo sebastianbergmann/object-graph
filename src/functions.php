@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of object-graph.
+ * This file is part of sebastian/object-graph.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -17,7 +17,7 @@ namespace SebastianBergmann\ObjectGraph;
  */
 function object_graph_dump(string $filename, $objectGraph)
 {
-    $format = pathinfo($filename, PATHINFO_EXTENSION);
+    $format = \pathinfo($filename, PATHINFO_EXTENSION);
 
     $builder = new Builder;
     $nodes   = $builder->build($objectGraph);
@@ -32,13 +32,13 @@ function object_graph_dump(string $filename, $objectGraph)
         case 'pdf':
         case 'png':
         case 'svg':
-            $tmpfile = tempnam(sys_get_temp_dir(), 'object_graph_dump');
+            $tmpfile = \tempnam(\sys_get_temp_dir(), 'object_graph_dump');
 
             $writer = new DotWriter;
             $writer->write($tmpfile, $nodes);
 
-            exec(
-                sprintf(
+            \exec(
+                \sprintf(
                     'dot -T%s -o %s %s',
                     $format,
                     $filename,
@@ -46,13 +46,13 @@ function object_graph_dump(string $filename, $objectGraph)
                 )
             );
 
-            unlink($tmpfile);
+            \unlink($tmpfile);
 
             return;
 
         default:
             throw new InvalidArgumentException(
-                sprintf(
+                \sprintf(
                     'Unknown format "%s"',
                     $format
                 )

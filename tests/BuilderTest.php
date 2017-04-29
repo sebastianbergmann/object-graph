@@ -45,7 +45,7 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(1, $nodeCollection);
 
-        $node = $nodeCollection->getById(1);
+        $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(\stdClass::class, $node->getClassName());
         $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
@@ -61,7 +61,7 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(1, $nodeCollection);
 
-        $node = $nodeCollection->getById(1);
+        $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(\stdClass::class, $node->getClassName());
         $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
@@ -77,7 +77,7 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(1, $nodeCollection);
 
-        $node = $nodeCollection->getById(1);
+        $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(\stdClass::class, $node->getClassName());
         $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
@@ -93,7 +93,7 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(1, $nodeCollection);
 
-        $node = $nodeCollection->getById(1);
+        $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(\stdClass::class, $node->getClassName());
         $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
@@ -112,8 +112,8 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(2, $nodeCollection);
 
-        $nodeOne = $nodeCollection->getById(1);
-        $nodeTwo = $nodeCollection->getById(2);
+        $nodeOne = $nodeCollection->findNodeById(1);
+        $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
         $this->assertEquals(['foo' => 'bar'], $nodeOne->getAttributes());
@@ -135,8 +135,8 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(2, $nodeCollection);
 
-        $nodeOne = $nodeCollection->getById(1);
-        $nodeTwo = $nodeCollection->getById(2);
+        $nodeOne = $nodeCollection->findNodeById(1);
+        $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
         $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
@@ -159,8 +159,8 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(2, $nodeCollection);
 
-        $nodeOne = $nodeCollection->getById(1);
-        $nodeTwo = $nodeCollection->getById(2);
+        $nodeOne = $nodeCollection->findNodeById(1);
+        $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
         $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
@@ -183,8 +183,8 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(2, $nodeCollection);
 
-        $nodeOne = $nodeCollection->getById(1);
-        $nodeTwo = $nodeCollection->getById(2);
+        $nodeOne = $nodeCollection->findNodeById(1);
+        $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
         $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
@@ -210,8 +210,8 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(2, $nodeCollection);
 
-        $nodeOne = $nodeCollection->getById(1);
-        $nodeTwo = $nodeCollection->getById(2);
+        $nodeOne = $nodeCollection->findNodeById(1);
+        $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
         $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['b']->getId());
@@ -231,7 +231,7 @@ final class BuilderTest extends TestCase
 
         $this->assertCount(1, $nodeCollection);
 
-        $node = $nodeCollection->getById(1);
+        $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(ChildClass::class, $node->getClassName());
         $this->assertEquals(['SebastianBergmann\ObjectGraph\TestFixture\ParentClass::foo' => 'bar'], $node->getAttributes());

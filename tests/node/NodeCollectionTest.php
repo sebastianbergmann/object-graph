@@ -50,9 +50,9 @@ final class NodeCollectionTest extends TestCase
         }
     }
 
-    public function testNodeCanBeRetrievedById()/*: void*/
+    public function testNodeCanBeFoundById()/*: void*/
     {
-        $this->assertInstanceOf(Node::class, $this->nodeCollection->getById(1));
+        $this->assertInstanceOf(Node::class, $this->nodeCollection->findNodeById(1));
     }
 
     public function testCanOnlyBeCreatedFromArrayOfNodeObjects()/*: void*/
@@ -66,6 +66,6 @@ final class NodeCollectionTest extends TestCase
     {
         $this->expectException(OutOfBoundsException::class);
 
-        $this->nodeCollection->getById(2);
+        $this->nodeCollection->findNodeById(2);
     }
 }

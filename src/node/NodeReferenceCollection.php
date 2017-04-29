@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of object-graph.
+ * This file is part of sebastian/object-graph.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -37,7 +37,7 @@ final class NodeReferenceCollection implements \Countable, \IteratorAggregate
 
     public function count(): int
     {
-        return count($this->elements);
+        return \count($this->elements);
     }
 
     /**

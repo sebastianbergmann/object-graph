@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of object-graph.
+ * This file is part of sebastian/object-graph.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -30,25 +30,25 @@ EOT;
             foreach ($node->getAttributes() as $name => $value) {
                 if ($value instanceof NodeReference) {
                     $value = '#' . $value->getId();
-                } elseif (is_array($value)) {
+                } elseif (\is_array($value)) {
                     $value = $this->arrayToString($value);
                 } else {
-                    $value = var_export($value, true);
+                    $value = \var_export($value, true);
                 }
 
-                $attributes .= sprintf(
+                $attributes .= \sprintf(
                     '<tr><td align="left">%s</td><td align="left">%s</td></tr>',
                     $name,
                     $value
                 );
             }
 
-            $buffer .= sprintf(
+            $buffer .= \sprintf(
                 '    "object%d" [style="filled,bold", penwidth="%d", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#%d</font></td><td bgcolor="black" align="right"><font color="white">%s</font></td></tr>%s</table>>];' . PHP_EOL,
                 $node->getId(),
                 $node->getId() === 1 ? 2 : 1,
                 $node->getId(),
-                str_replace('\\', '\\\\', $node->getClassName()),
+                \str_replace('\\', '\\\\', $node->getClassName()),
                 $attributes
             );
         }
@@ -63,7 +63,7 @@ EOT;
                     continue;
                 }
 
-                $buffer .= sprintf(
+                $buffer .= \sprintf(
                     '    object%d -> object%d;' . PHP_EOL,
                     $node->getId(),
                     $referencedNode->getId()
@@ -75,7 +75,7 @@ EOT;
 
         $buffer .= '}' . PHP_EOL;
 
-        file_put_contents($filename, $buffer);
+        \file_put_contents($filename, $buffer);
     }
 
     private function arrayToString(array $array): string
@@ -85,15 +85,15 @@ EOT;
         foreach ($array as $key => $value) {
             if ($value instanceof NodeReference) {
                 $value = '#' . $value->getId();
-            } elseif (is_array($value)) {
+            } elseif (\is_array($value)) {
                 $value = $this->arrayToString($value);
             } else {
-                $value = var_export($value, true);
+                $value = \var_export($value, true);
             }
 
             $tmp[$key] = $value;
         }
 
-        return '[' . implode(',', $tmp) . ']';
+        return '[' . \implode(',', $tmp) . ']';
     }
 }

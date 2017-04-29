@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of object-graph.
+ * This file is part of sebastian/object-graph.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -37,7 +37,7 @@ final class NodeCollection implements \Countable, \IteratorAggregate
 
     public function count(): int
     {
-        return count($this->elements);
+        return \count($this->elements);
     }
 
     /**
@@ -48,17 +48,17 @@ final class NodeCollection implements \Countable, \IteratorAggregate
         return $this->elements;
     }
 
-    public function getIterator(): NodeCollectionIterator
-    {
-        return new NodeCollectionIterator($this);
-    }
-
-    public function getById(int $id): Node
+    public function findNodeById(int $id): Node
     {
         if (!isset($this->elements[$id])) {
             throw new OutOfBoundsException;
         }
 
         return $this->elements[$id];
+    }
+
+    public function getIterator(): NodeCollectionIterator
+    {
+        return new NodeCollectionIterator($this);
     }
 }

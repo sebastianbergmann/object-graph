@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of object-graph.
+ * This file is part of sebastian/object-graph.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -34,16 +34,16 @@ final class Builder
             $reflector  = new ObjectReflector;
 
             foreach ($reflector->getAttributes($object) as $name => $value) {
-                if (is_array($value)) {
+                if (\is_array($value)) {
                     $value = $this->processArray($value, $map);
-                } elseif (is_object($value)) {
+                } elseif (\is_object($value)) {
                     $value = new NodeReference($map[$value]);
                 }
 
                 $attributes[$name] = $value;
             }
 
-            $nodes[] = new Node($map[$object], get_class($object), $attributes);
+            $nodes[] = new Node($map[$object], \get_class($object), $attributes);
         }
 
         return new NodeCollection($nodes);
@@ -55,9 +55,9 @@ final class Builder
         $result = [];
 
         foreach ($array as $key => $value) {
-            if (is_array($value)) {
+            if (\is_array($value)) {
                 $value = $this->processArray($value, $map);
-            } elseif (is_object($value)) {
+            } elseif (\is_object($value)) {
                 $value = new NodeReference($map[$value]);
             }
 

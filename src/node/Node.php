@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of object-graph.
+ * This file is part of sebastian/object-graph.
  *
  * (c) Sebastian Bergmann <sebastian@phpunit.de>
  *
@@ -41,9 +41,9 @@ final class Node
         $this->attributes = $attributes;
     }
 
-    public function getId(): int
+    public function getAttributes(): array
     {
-        return $this->id;
+        return $this->attributes;
     }
 
     public function getClassName(): string
@@ -51,9 +51,9 @@ final class Node
         return $this->className;
     }
 
-    public function getAttributes(): array
+    public function getId(): int
     {
-        return $this->attributes;
+        return $this->id;
     }
 
     public function getReferencedNodes(): NodeReferenceCollection
@@ -84,6 +84,6 @@ final class Node
 
     public function referencesNodes(): bool
     {
-        return count($this->getReferencedNodes()) > 0;
+        return \count($this->getReferencedNodes()) > 0;
     }
 }
