@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /*
  * This file is part of sebastian/object-graph.
  *
@@ -8,14 +8,12 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace SebastianBergmann\ObjectGraph;
 
 /**
  * @codeCoverageIgnore
  */
-function object_graph_dump(string $filename, $objectGraph)
+function object_graph_dump(string $filename, $objectGraph): void
 {
     $format = \pathinfo($filename, PATHINFO_EXTENSION);
 

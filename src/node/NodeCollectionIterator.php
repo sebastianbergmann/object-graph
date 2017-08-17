@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /*
  * This file is part of sebastian/object-graph.
  *
@@ -7,8 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
 
 namespace SebastianBergmann\ObjectGraph;
 
@@ -29,7 +27,7 @@ final class NodeCollectionIterator implements \Iterator
         $this->elements = $collection->getElements();
     }
 
-    public function rewind()/*: void*/
+    public function rewind(): void
     {
         $this->position = 1;
     }
@@ -49,7 +47,7 @@ final class NodeCollectionIterator implements \Iterator
         return $this->elements[$this->position];
     }
 
-    public function next()/*: void*/
+    public function next(): void
     {
         $this->position++;
     }

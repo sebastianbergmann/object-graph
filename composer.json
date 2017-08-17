@@ -1,39 +1,47 @@
 {
-    "name": "sebastian/object-graph",
-    "description": "Provides useful operations on PHP object graphs",
-    "homepage": "https://github.com/sebastianbergmann/object-graph/",
-    "license": "BSD-3-Clause",
-    "authors": [
-        {
-            "name": "Sebastian Bergmann",
-            "email": "sebastian@phpunit.de"
-        }
-    ],
-    "require": {
-        "php": "^7.0",
-        "sebastian/object-enumerator": "^3.0",
-        "sebastian/object-reflector": "^1.0"
+  "name": "sebastian/object-graph",
+  "description": "Provides useful operations on PHP object graphs",
+  "homepage": "https://github.com/sebastianbergmann/object-graph/",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Sebastian Bergmann",
+      "email": "sebastian@phpunit.de"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "7.1.0"
     },
-    "require-dev": {
-        "phpunit/phpunit": "^6.0",
-        "mikey179/vfsStream": "^1.6"
-    },
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "prefer-stable": true,
+  "require": {
+    "php": "^7.1",
+    "sebastian/object-enumerator": "^3.0.3",
+    "sebastian/object-reflector": "^1.1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.3",
+    "mikey179/vfsStream": "^1.6"
+  },
   "autoload": {
     "classmap": [
       "src/"
-    ]
-  },
-  "autoload-dev": {
-    "classmap": [
-      "tests/_fixture/"
     ],
     "files": [
       "src/functions.php"
     ]
   },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        }
+  "autoload-dev": {
+    "classmap": [
+      "tests/_fixture/"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
     }
+  }
 }

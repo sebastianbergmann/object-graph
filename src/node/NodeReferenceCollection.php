@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /*
  * This file is part of sebastian/object-graph.
  *
@@ -7,8 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-declare(strict_types=1);
 
 namespace SebastianBergmann\ObjectGraph;
 
@@ -28,7 +26,9 @@ final class NodeReferenceCollection implements \Countable, \IteratorAggregate
     {
         foreach ($elements as $element) {
             if (!$element instanceof NodeReference) {
-                throw new InvalidArgumentException;
+                throw new InvalidArgumentException(
+                    '$elements must only contain NodeReference objects'
+                );
             }
         }
 

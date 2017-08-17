@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /*
  * This file is part of sebastian/object-graph.
  *
@@ -8,13 +8,11 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace SebastianBergmann\ObjectGraph;
 
 final class DotWriter
 {
-    public function write(string $filename, NodeCollection $nodes)/*: void*/
+    public function write(string $filename, NodeCollection $nodes): void
     {
         $buffer = <<<EOT
 digraph G {

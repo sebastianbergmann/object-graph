@@ -1,8 +1,6 @@
 language: php
 
 php:
-  - 7.0
-  - 7.0snapshot
   - 7.1
   - 7.1snapshot
   - master
@@ -14,7 +12,7 @@ before_install:
   - composer clear-cache
 
 install:
-  - travis_retry composer update --no-interaction --no-ansi --no-progress --no-suggest --optimize-autoloader --prefer-stable
+  - travis_retry composer update --no-interaction --no-ansi --no-progress --no-suggest
 
 script:
   - ./vendor/bin/phpunit --coverage-clover=coverage.xml
