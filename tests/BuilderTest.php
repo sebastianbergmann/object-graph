@@ -29,12 +29,12 @@ final class BuilderTest extends TestCase
      */
     private $builder;
 
-    protected function setUp()/*: void*/
+    protected function setUp(): void
     {
         $this->builder = new Builder;
     }
 
-    public function testCanBuildNodeCollectionFromSingleObject()/*: void*/
+    public function testCanBuildNodeCollectionFromSingleObject(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -50,7 +50,7 @@ final class BuilderTest extends TestCase
         $this->assertFalse($node->referencesNodes());
     }
 
-    public function testCanBuildNodeCollectionFromSingleObjectStoredInArray()/*: void*/
+    public function testCanBuildNodeCollectionFromSingleObjectStoredInArray(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -66,7 +66,7 @@ final class BuilderTest extends TestCase
         $this->assertFalse($node->referencesNodes());
     }
 
-    public function testCanBuildNodeCollectionFromSingleObjectStoredInNestedArray()/*: void*/
+    public function testCanBuildNodeCollectionFromSingleObjectStoredInNestedArray(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -82,7 +82,7 @@ final class BuilderTest extends TestCase
         $this->assertFalse($node->referencesNodes());
     }
 
-    public function testCanBuildNodeCollectionFromArrayWithMultipleReferencesToTheSameObject()/*: void*/
+    public function testCanBuildNodeCollectionFromArrayWithMultipleReferencesToTheSameObject(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -98,7 +98,7 @@ final class BuilderTest extends TestCase
         $this->assertFalse($node->referencesNodes());
     }
 
-    public function testCanBuildNodeCollectionFromArrayWithMultipleObjects()/*: void*/
+    public function testCanBuildNodeCollectionFromArrayWithMultipleObjects(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -121,7 +121,7 @@ final class BuilderTest extends TestCase
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
-    public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObject()/*: void*/
+    public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObject(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -145,7 +145,7 @@ final class BuilderTest extends TestCase
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
-    public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObjectInArray()/*: void*/
+    public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObjectInArray(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -169,7 +169,7 @@ final class BuilderTest extends TestCase
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
-    public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObjectInNestedArray()/*: void*/
+    public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObjectInNestedArray(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -193,7 +193,7 @@ final class BuilderTest extends TestCase
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
-    public function testCanBuildNodeCollectionFromObjectsWithCyclicReference()/*: void*/
+    public function testCanBuildNodeCollectionFromObjectsWithCyclicReference(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -221,7 +221,7 @@ final class BuilderTest extends TestCase
         $this->assertTrue($nodeTwo->referencesNodes());
     }
 
-    public function testCanProcessInheritedAttributes()/*: void*/
+    public function testCanProcessInheritedAttributes(): void
     {
         $a = new ChildClass;
 

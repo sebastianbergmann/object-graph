@@ -21,7 +21,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class NodeCollectionIteratorTest extends TestCase
 {
-    public function testCanIterateNodeCollection()/*: void*/
+    public function testCanIterateNodeCollection(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';

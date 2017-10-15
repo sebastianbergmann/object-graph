@@ -25,17 +25,17 @@ final class NodeReferenceCollectionTest extends TestCase
      */
     private $nodeReferenceCollection;
 
-    protected function setUp()/*: void*/
+    protected function setUp(): void
     {
         $this->nodeReferenceCollection = new NodeReferenceCollection([new NodeReference(1)]);
     }
 
-    public function testIsCountable()/*: void*/
+    public function testIsCountable(): void
     {
         $this->assertCount(1, $this->nodeReferenceCollection);
     }
 
-    public function testIsIterateable()/*: void*/
+    public function testIsIterateable(): void
     {
         foreach ($this->nodeReferenceCollection as $key => $nodeReference) {
             $this->assertInternalType('int', $key);
@@ -43,7 +43,7 @@ final class NodeReferenceCollectionTest extends TestCase
         }
     }
 
-    public function testCanOnlyBeCreatedFromArrayOfNodeReferenceObjects()/*: void*/
+    public function testCanOnlyBeCreatedFromArrayOfNodeReferenceObjects(): void
     {
         $this->expectException(InvalidArgumentException::class);
 

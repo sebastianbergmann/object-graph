@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class NodeReferenceCollectionIteratorTest extends TestCase
 {
-    public function testCanIterateNodeReferenceCollection()/*: void*/
+    public function testCanIterateNodeReferenceCollection(): void
     {
         $nodeReferenceCollection = new NodeReferenceCollection([new NodeReference(1)]);
 

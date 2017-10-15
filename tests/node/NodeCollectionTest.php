@@ -26,7 +26,7 @@ final class NodeCollectionTest extends TestCase
      */
     private $nodeCollection;
 
-    protected function setUp()/*: void*/
+    protected function setUp(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
@@ -35,12 +35,12 @@ final class NodeCollectionTest extends TestCase
         $this->nodeCollection = $builder->build($a);
     }
 
-    public function testIsCountable()/*: void*/
+    public function testIsCountable(): void
     {
         $this->assertCount(1, $this->nodeCollection);
     }
 
-    public function testIsIterateable()/*: void*/
+    public function testIsIterateable(): void
     {
         foreach ($this->nodeCollection as $key => $node) {
             $this->assertInternalType('int', $key);
@@ -48,19 +48,19 @@ final class NodeCollectionTest extends TestCase
         }
     }
 
-    public function testNodeCanBeFoundById()/*: void*/
+    public function testNodeCanBeFoundById(): void
     {
         $this->assertInstanceOf(Node::class, $this->nodeCollection->findNodeById(1));
     }
 
-    public function testCanOnlyBeCreatedFromArrayOfNodeObjects()/*: void*/
+    public function testCanOnlyBeCreatedFromArrayOfNodeObjects(): void
     {
         $this->expectException(InvalidArgumentException::class);
 
         new NodeCollection([null]);
     }
 
-    public function testNodeThatDoesNotExistCannotBeRetrieved()/*: void*/
+    public function testNodeThatDoesNotExistCannotBeRetrieved(): void
     {
         $this->expectException(OutOfBoundsException::class);
 

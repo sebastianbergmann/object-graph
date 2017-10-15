@@ -22,12 +22,12 @@ final class NodeReferenceTest extends TestCase
      */
     private $nodeReference;
 
-    protected function setUp()/*: void*/
+    protected function setUp(): void
     {
         $this->nodeReference = new NodeReference(1);
     }
 
-    public function testCanBeIdentified()/*: void*/
+    public function testCanBeIdentified(): void
     {
         $this->assertEquals(1, $this->nodeReference->getId());
     }

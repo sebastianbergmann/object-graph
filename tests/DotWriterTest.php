@@ -42,14 +42,14 @@ final class DotWriterTest extends TestCase
      */
     private $actualFile;
 
-    protected function setUp()/*: void*/
+    protected function setUp(): void
     {
         $this->dotWriter  = new DotWriter;
         $this->root       = vfsStream::setup();
         $this->actualFile = vfsStream::url('root') . '/graph.dot';
     }
 
-    public function testCanGenerateDotMarkupFromNodeCollection()/*: void*/
+    public function testCanGenerateDotMarkupFromNodeCollection(): void
     {
         $a      = new \stdClass;
         $a->foo = 'bar';
