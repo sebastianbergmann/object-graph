@@ -27,9 +27,9 @@
     "mikey179/vfsStream": "^1.6"
   },
   "autoload": {
-    "classmap": [
-      "src/"
-    ],
+    "psr-4": {
+      "SebastianBergmann\\ObjectGraph\\": "src/"
+    },
     "files": [
       "src/functions.php"
     ]
