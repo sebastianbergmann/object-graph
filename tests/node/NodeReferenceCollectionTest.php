@@ -42,4 +42,11 @@ final class NodeReferenceCollectionTest extends TestCase
             $this->assertInstanceOf(NodeReference::class, $nodeReference);
         }
     }
+
+    public function testCanOnlyBeCreatedFromArrayOfNodeReferenceObjects()/*: void*/
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new NodeReferenceCollection([null]);
+    }
 }
