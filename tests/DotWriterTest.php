@@ -57,6 +57,7 @@ final class DotWriterTest extends TestCase
         $b->bar = 'foo';
         $a->bar = $b;
         $a->baz = [[$b], true];
+        $a->qux = ['quux' => 'quuz', 'corge' => 'grault'];
 
         $builder = new Builder;
         $nodes   = $builder->build($a);

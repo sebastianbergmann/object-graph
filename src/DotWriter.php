@@ -89,7 +89,7 @@ EOT;
                 $value = \var_export($value, true);
             }
 
-            $tmp[$key] = $value;
+            $tmp[] = "{$key}=>{$value}";
         }
 
         return '[' . \implode(',', $tmp) . ']';
