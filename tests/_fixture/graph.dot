@@ -2,7 +2,7 @@ digraph G {
     graph [fontsize=30 labelloc="t" label="" splines=true overlap=false rankdir = "LR"];
     ratio = auto;
 
-    "object1" [style="filled,bold", penwidth="2", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#1</font></td><td bgcolor="black" align="right"><font color="white">stdClass</font></td></tr><tr><td align="left">foo</td><td align="left">'bar'</td></tr><tr><td align="left">bar</td><td align="left">#2</td></tr><tr><td align="left">baz</td><td align="left">[[#2],true]</td></tr></table>>];
+    "object1" [style="filled,bold", penwidth="2", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#1</font></td><td bgcolor="black" align="right"><font color="white">stdClass</font></td></tr><tr><td align="left">foo</td><td align="left">'&lt;? bar'</td></tr><tr><td align="left">bar</td><td align="left">#2</td></tr><tr><td align="left">baz</td><td align="left">[[#2],true]</td></tr></table>>];
     "object2" [style="filled,bold", penwidth="1", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#2</font></td><td bgcolor="black" align="right"><font color="white">stdClass</font></td></tr><tr><td align="left">bar</td><td align="left">'foo'</td></tr></table>>];
 
     object1 -> object2;

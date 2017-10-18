@@ -31,7 +31,7 @@ EOT;
                 } elseif (\is_array($value)) {
                     $value = $this->arrayToString($value);
                 } else {
-                    $value = \var_export($value, true);
+                    $value = \htmlspecialchars(\var_export($value, true), \ENT_SUBSTITUTE);
                 }
 
                 $attributes .= \sprintf(

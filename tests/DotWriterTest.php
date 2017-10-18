@@ -52,7 +52,7 @@ final class DotWriterTest extends TestCase
     public function testCanGenerateDotMarkupFromNodeCollection(): void
     {
         $a      = new \stdClass;
-        $a->foo = 'bar';
+        $a->foo = '<? bar';
         $b      = new \stdClass;
         $b->bar = 'foo';
         $a->bar = $b;
