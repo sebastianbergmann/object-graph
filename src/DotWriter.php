@@ -89,6 +89,7 @@ EOT;
                 $value = \var_export($value, true);
             }
 
+            $key = \var_export($key, true);
             $tmp[] = "{$key}=>{$value}";
         }
 
