@@ -90,7 +90,7 @@ EOT;
             }
 
             $key = \var_export($key, true);
-            $tmp[] = "{$key}=>{$value}";
+            $tmp[] = \htmlspecialchars("{$key}=>{$value}", \ENT_SUBSTITUTE);
         }
 
         return '[' . \implode(',', $tmp) . ']';
