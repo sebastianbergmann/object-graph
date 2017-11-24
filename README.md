@@ -22,7 +22,7 @@ If you only need this library during development, for instance to run your proje
 ### Object Graph Visualization with GraphViz
 
 ```php
-<?php
+<?php declare(strict_types=1);
 use function SebastianBergmann\ObjectGraph\object_graph_dump;
 
 $cart = new ShoppingCart;
@@ -32,7 +32,7 @@ $cart->add(new ShoppingCartItem('Bar', new Money(456, new Currency('EUR')), 1));
 object_graph_dump('graph.png', $cart);
 ```
 
-![Screenshot](screenshot.png)
+![Screenshot](example/example.png)
 
 The `object_graph_dump()` function supports the [DOT Graph Description Language](https://en.wikipedia.org/wiki/DOT_(graph_description_language)) (`.dot`), [Portable Document Format](https://en.wikipedia.org/wiki/Portable_Document_Format) (`.pdf`), [Portable Network Graphics](https://en.wikipedia.org/wiki/Portable_Network_Graphics) (`.png`), and [Scalable Vector Graphics](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) (`.svg`) output formats.
 
