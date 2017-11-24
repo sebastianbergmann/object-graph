@@ -89,7 +89,8 @@ EOT;
                 $value = \var_export($value, true);
             }
 
-            $tmp[$key] = $value;
+            $key = \var_export($key, true);
+            $tmp[] = \htmlspecialchars("{$key}=>{$value}", \ENT_SUBSTITUTE);
         }
 
         return '[' . \implode(',', $tmp) . ']';
