@@ -1,0 +1,19 @@
+digraph G {
+    graph [fontsize=30 labelloc="t" label="" splines=true overlap=false rankdir = "LR"];
+    ratio = auto;
+
+    "object1" [style="filled,bold", penwidth="2", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#1</font></td><td bgcolor="black" align="right"><font color="white">ShoppingCart</font></td></tr><tr><td align="left">items</td><td align="left">[#2,#5]</td></tr></table>>];
+    "object2" [style="filled,bold", penwidth="1", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#2</font></td><td bgcolor="black" align="right"><font color="white">ShoppingCartItem</font></td></tr><tr><td align="left">description</td><td align="left">'Foo'</td></tr><tr><td align="left">unitPrice</td><td align="left">#3</td></tr><tr><td align="left">quantity</td><td align="left">1</td></tr></table>>];
+    "object3" [style="filled,bold", penwidth="1", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#3</font></td><td bgcolor="black" align="right"><font color="white">Money</font></td></tr><tr><td align="left">amount</td><td align="left">123</td></tr><tr><td align="left">currency</td><td align="left">#4</td></tr></table>>];
+    "object4" [style="filled,bold", penwidth="1", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#4</font></td><td bgcolor="black" align="right"><font color="white">Currency</font></td></tr><tr><td align="left">isoCode</td><td align="left">'EUR'</td></tr></table>>];
+    "object5" [style="filled,bold", penwidth="1", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#5</font></td><td bgcolor="black" align="right"><font color="white">ShoppingCartItem</font></td></tr><tr><td align="left">description</td><td align="left">'Bar'</td></tr><tr><td align="left">unitPrice</td><td align="left">#6</td></tr><tr><td align="left">quantity</td><td align="left">1</td></tr></table>>];
+    "object6" [style="filled,bold", penwidth="1", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#6</font></td><td bgcolor="black" align="right"><font color="white">Money</font></td></tr><tr><td align="left">amount</td><td align="left">456</td></tr><tr><td align="left">currency</td><td align="left">#7</td></tr></table>>];
+    "object7" [style="filled,bold", penwidth="1", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#7</font></td><td bgcolor="black" align="right"><font color="white">Currency</font></td></tr><tr><td align="left">isoCode</td><td align="left">'EUR'</td></tr></table>>];
+
+    object1 -> object2;
+    object1 -> object5;
+    object2 -> object3;
+    object3 -> object4;
+    object5 -> object6;
+    object6 -> object7;
+}

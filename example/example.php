@@ -53,6 +53,7 @@ $cart = new ShoppingCart;
 $cart->add(new ShoppingCartItem('Foo', new Money(123, new Currency('EUR')), 1));
 $cart->add(new ShoppingCartItem('Bar', new Money(456, new Currency('EUR')), 1));
 
+object_graph_dump(__DIR__ . '/example.dot', $cart);
 object_graph_dump(__DIR__ . '/example.pdf', $cart);
 object_graph_dump(__DIR__ . '/example.png', $cart);
 object_graph_dump(__DIR__ . '/example.svg', $cart);
