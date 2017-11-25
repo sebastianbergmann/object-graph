@@ -35,7 +35,7 @@ EOT;
                 }
 
                 $attributes .= \sprintf(
-                    '<tr><td align="left">%s</td><td align="left">%s</td></tr>',
+                    '<tr><td align="left" valign="top">%s</td><td align="left" valign="top">%s</td></tr>',
                     $name,
                     $value
                 );
@@ -78,7 +78,7 @@ EOT;
 
     private function arrayToString(array $array): string
     {
-        $tmp = [];
+        $buffer = '<table border="0" cellborder="0" cellpadding="1" bgcolor="white"><tr><td align="left" valign="top" colspan="3">&#91;</td></tr>';
 
         foreach ($array as $key => $value) {
             if ($value instanceof NodeReference) {
@@ -89,9 +89,13 @@ EOT;
                 $value = \var_export($value, true);
             }
 
-            $tmp[$key] = $value;
+            $buffer .= sprintf(
+                '<tr><td></td><td align="left" valign="top">%s =&gt; </td><td align="left" valign="top">%s</td></tr>',
+                $key,
+                $value
+            );
         }
 
-        return '[' . \implode(',', $tmp) . ']';
+        return $buffer . '<tr><td align="left" valign="top" colspan="3">&#93;</td></tr></table>';
     }
 }

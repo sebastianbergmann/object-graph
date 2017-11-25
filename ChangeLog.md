@@ -2,6 +2,12 @@
 
 All notable changes to `sebastian/object-graph` are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [1.1.0] - 2017-MM-DD
+
+### Changed
+
+* The `DotWriter` now emits information about array keys
+
 ## [1.0.1] - 2017-10-18
 
 ### Fixed
@@ -12,4 +18,5 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 * Initial release
 
+[1.1.0]: https://github.com/sebastianbergmann/object-graph/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/sebastianbergmann/object-graph/compare/1.0.0...1.0.1
