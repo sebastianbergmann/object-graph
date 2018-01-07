@@ -10,9 +10,9 @@
 
 namespace SebastianBergmann\ObjectGraph;
 
-use PHPUnit\Framework\TestCase;
 use org\bovigo\vfs\vfsStream;
 use org\bovigo\vfs\vfsStreamDirectory;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \SebastianBergmann\ObjectGraph\DotWriter

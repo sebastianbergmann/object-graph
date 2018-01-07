@@ -89,7 +89,7 @@ EOT;
                 $value = \var_export($value, true);
             }
 
-            $buffer .= sprintf(
+            $buffer .= \sprintf(
                 '<tr><td></td><td align="left" valign="top">%s =&gt; </td><td align="left" valign="top">%s</td></tr>',
                 $key,
                 $value
