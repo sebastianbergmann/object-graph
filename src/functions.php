@@ -12,6 +12,8 @@ namespace SebastianBergmann\ObjectGraph;
 
 /**
  * @codeCoverageIgnore
+ *
+ * @throws InvalidArgumentException
  */
 function object_graph_dump(string $filename, $objectGraph): void
 {

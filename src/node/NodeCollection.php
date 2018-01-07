@@ -48,6 +48,9 @@ final class NodeCollection implements \Countable, \IteratorAggregate
         return $this->elements;
     }
 
+    /**
+     * @throws OutOfBoundsException
+     */
     public function findNodeById(int $id): Node
     {
         if (!isset($this->elements[$id])) {

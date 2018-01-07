@@ -15,6 +15,10 @@ use SebastianBergmann\ObjectReflector\ObjectReflector;
 
 final class Builder
 {
+    /**
+     * @throws \SebastianBergmann\ObjectEnumerator\InvalidArgumentException
+     * @throws \SebastianBergmann\ObjectReflector\InvalidArgumentException
+     */
     public function build($objectGraph): NodeCollection
     {
         /** @var int[] $map */
