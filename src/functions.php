@@ -7,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace SebastianBergmann\ObjectGraph;
 
 /**
@@ -17,7 +16,7 @@ namespace SebastianBergmann\ObjectGraph;
  */
 function object_graph_dump(string $filename, $objectGraph): void
 {
-    $format = \pathinfo($filename, PATHINFO_EXTENSION);
+    $format = \pathinfo($filename, \PATHINFO_EXTENSION);
 
     $builder = new Builder;
     $nodes   = $builder->build($objectGraph);

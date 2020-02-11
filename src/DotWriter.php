@@ -7,7 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace SebastianBergmann\ObjectGraph;
 
 final class DotWriter
@@ -42,7 +41,7 @@ EOT;
             }
 
             $buffer .= \sprintf(
-                '    "object%d" [style="filled,bold", penwidth="%d", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#%d</font></td><td bgcolor="black" align="right"><font color="white">%s</font></td></tr>%s</table>>];' . PHP_EOL,
+                '    "object%d" [style="filled,bold", penwidth="%d", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#%d</font></td><td bgcolor="black" align="right"><font color="white">%s</font></td></tr>%s</table>>];' . \PHP_EOL,
                 $node->getId(),
                 $node->getId() === 1 ? 2 : 1,
                 $node->getId(),
@@ -51,7 +50,7 @@ EOT;
             );
         }
 
-        $buffer .= PHP_EOL;
+        $buffer .= \PHP_EOL;
 
         foreach ($nodes as $node) {
             $processedReferencedNodes = [];
@@ -62,7 +61,7 @@ EOT;
                 }
 
                 $buffer .= \sprintf(
-                    '    object%d -> object%d;' . PHP_EOL,
+                    '    object%d -> object%d;' . \PHP_EOL,
                     $node->getId(),
                     $referencedNode->getId()
                 );
@@ -71,7 +70,7 @@ EOT;
             }
         }
 
-        $buffer .= '}' . PHP_EOL;
+        $buffer .= '}' . \PHP_EOL;
 
         \file_put_contents($filename, $buffer);
     }
