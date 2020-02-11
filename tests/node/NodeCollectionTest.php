@@ -30,8 +30,7 @@ final class NodeCollectionTest extends TestCase
         $a      = new \stdClass;
         $a->foo = 'bar';
 
-        $builder              = new Builder;
-        $this->nodeCollection = $builder->build($a);
+        $this->nodeCollection = (new Builder)->build($a);
     }
 
     public function testIsCountable(): void
@@ -42,14 +41,9 @@ final class NodeCollectionTest extends TestCase
     public function testIsIterateable(): void
     {
         foreach ($this->nodeCollection as $key => $node) {
-            $this->assertInternalType('int', $key);
+            $this->assertIsInt($key);
             $this->assertInstanceOf(Node::class, $node);
         }
-    }
-
-    public function testNodeCanBeFoundById(): void
-    {
-        $this->assertInstanceOf(Node::class, $this->nodeCollection->findNodeById(1));
     }
 
     public function testCanOnlyBeCreatedFromArrayOfNodeObjects(): void

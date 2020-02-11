@@ -14,37 +14,39 @@ final class NodeCollection implements \Countable, \IteratorAggregate
     /**
      * @var Node[]
      */
-    private $elements;
+    private array
+
+ $nodes;
 
     /**
-     * @param Node[] $elements
+     * @param Node[] $nodes
      *
      * @throws InvalidArgumentException
      */
-    public function __construct(array $elements)
+    public function __construct(array $nodes)
     {
-        foreach ($elements as $element) {
-            if (!$element instanceof Node) {
+        foreach ($nodes as $node) {
+            if (!$node instanceof Node) {
                 throw new InvalidArgumentException(
-                    '$elements must only contain Node objects'
+                    '$nodes must only contain Node objects'
                 );
             }
 
-            $this->elements[$element->getId()] = $element;
+            $this->nodes[$node->getId()] = $node;
         }
     }
 
     public function count(): int
     {
-        return \count($this->elements);
+        return \count($this->nodes);
     }
 
     /**
      * @return Node[]
      */
-    public function getElements(): array
+    public function asArray(): array
     {
-        return $this->elements;
+        return $this->nodes;
     }
 
     /**
@@ -52,11 +54,11 @@ final class NodeCollection implements \Countable, \IteratorAggregate
      */
     public function findNodeById(int $id): Node
     {
-        if (!isset($this->elements[$id])) {
+        if (!isset($this->nodes[$id])) {
             throw new OutOfBoundsException;
         }
 
-        return $this->elements[$id];
+        return $this->nodes[$id];
     }
 
     public function getIterator(): NodeCollectionIterator

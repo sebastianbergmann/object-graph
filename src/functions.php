@@ -17,9 +17,7 @@ namespace SebastianBergmann\ObjectGraph;
 function object_graph_dump(string $filename, $objectGraph): void
 {
     $format = \pathinfo($filename, \PATHINFO_EXTENSION);
-
-    $builder = new Builder;
-    $nodes   = $builder->build($objectGraph);
+    $nodes  = (new Builder)->build($objectGraph);
 
     switch ($format) {
         case 'dot':

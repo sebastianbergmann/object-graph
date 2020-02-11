@@ -32,9 +32,8 @@ final class Builder
 
         foreach ($enumerator->enumerate($objectGraph) as $object) {
             $attributes = [];
-            $reflector  = new ObjectReflector;
 
-            foreach ($reflector->getAttributes($object) as $name => $value) {
+            foreach ((new ObjectReflector)->getAttributes($object) as $name => $value) {
                 if (\is_array($value)) {
                     $value = $this->processArray($value, $map);
                 } elseif (\is_object($value)) {

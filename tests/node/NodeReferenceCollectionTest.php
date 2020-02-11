@@ -37,7 +37,7 @@ final class NodeReferenceCollectionTest extends TestCase
     public function testIsIterateable(): void
     {
         foreach ($this->nodeReferenceCollection as $key => $nodeReference) {
-            $this->assertInternalType('int', $key);
+            $this->assertIsInt($key);
             $this->assertInstanceOf(NodeReference::class, $nodeReference);
         }
     }

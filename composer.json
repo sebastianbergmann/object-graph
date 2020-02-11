@@ -11,19 +11,18 @@
   ],
   "config": {
     "platform": {
-      "php": "7.1.0"
+      "php": "7.4.2"
     },
     "optimize-autoloader": true,
     "sort-packages": true
   },
   "prefer-stable": true,
   "require": {
-    "php": "^7.1",
-    "sebastian/object-enumerator": "^3.0.3",
-    "sebastian/object-reflector": "^1.1.1"
+    "php": "^7.4",
+    "sebastian/object-enumerator": "^4.0",
+    "sebastian/object-reflector": "^2.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7.2",
     "mikey179/vfsstream": "^1.6"
   },
   "autoload": {
@@ -41,7 +40,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "1.1-dev"
+      "dev-master": "2.0-dev"
     }
   }
 }

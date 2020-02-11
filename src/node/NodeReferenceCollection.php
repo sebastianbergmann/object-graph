@@ -14,37 +14,39 @@ final class NodeReferenceCollection implements \Countable, \IteratorAggregate
     /**
      * @var NodeReference[]
      */
-    private $elements;
+    private array
+
+ $references;
 
     /**
-     * @param NodeReference[] $elements
+     * @param NodeReference[] $references
      *
      * @throws InvalidArgumentException
      */
-    public function __construct(array $elements)
+    public function __construct(array $references)
     {
-        foreach ($elements as $element) {
-            if (!$element instanceof NodeReference) {
+        foreach ($references as $reference) {
+            if (!$reference instanceof NodeReference) {
                 throw new InvalidArgumentException(
-                    '$elements must only contain NodeReference objects'
+                    '$references must only contain NodeReference objects'
                 );
             }
         }
 
-        $this->elements = $elements;
+        $this->references = $references;
     }
 
     public function count(): int
     {
-        return \count($this->elements);
+        return \count($this->references);
     }
 
     /**
      * @return NodeReference[]
      */
-    public function getElements(): array
+    public function getReferences(): array
     {
-        return $this->elements;
+        return $this->references;
     }
 
     public function getIterator(): NodeReferenceCollectionIterator

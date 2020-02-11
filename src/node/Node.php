@@ -11,25 +11,15 @@ namespace SebastianBergmann\ObjectGraph;
 
 final class Node
 {
-    /**
-     * @var int
-     */
-    private $id;
+    private int $id;
 
-    /**
-     * @var string
-     */
-    private $className;
+    private string $className;
 
-    /**
-     * @var array
-     */
-    private $attributes = [];
+    private array
 
-    /**
-     * @var NodeReferenceCollection
-     */
-    private $referencedNodes;
+ $attributes = [];
+
+    private ?NodeReferenceCollection $referencedNodes = null;
 
     public function __construct(int $id, string $className, array $attributes)
     {
@@ -55,7 +45,7 @@ final class Node
 
     public function getReferencedNodes(): NodeReferenceCollection
     {
-        if ($this->referencedNodes instanceof NodeReferenceCollection) {
+        if ($this->referencedNodes !== null) {
             return $this->referencedNodes;
         }
 

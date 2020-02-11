@@ -2,6 +2,12 @@
 
 All notable changes to `sebastian/object-graph` are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [2.0.0] - 2020-02-11
+
+### Removed
+
+* This component is no longer supported on PHP 7.1, PHP 7.2, and PHP 7.3
+
 ## [1.1.0] - 2017-11-27
 
 ### Changed
@@ -18,5 +24,6 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 * Initial release
 
+[2.0.0]: https://github.com/sebastianbergmann/object-graph/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/sebastianbergmann/object-graph/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/sebastianbergmann/object-graph/compare/1.0.0...1.0.1

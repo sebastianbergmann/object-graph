@@ -14,16 +14,15 @@ final class NodeReferenceCollectionIterator implements \Iterator
     /**
      * @var NodeReference[]
      */
-    private $elements;
+    private array
 
-    /**
-     * @var int
-     */
-    private $position;
+ $elements;
+
+    private int $position;
 
     public function __construct(NodeReferenceCollection $collection)
     {
-        $this->elements = $collection->getElements();
+        $this->elements = $collection->getReferences();
     }
 
     public function rewind(): void
