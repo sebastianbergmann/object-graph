@@ -1,4 +1,12 @@
 <?php declare(strict_types=1);
+/*
+ * This file is part of sebastian/object-graph.
+ *
+ * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 use function SebastianBergmann\ObjectGraph\object_graph_dump;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -16,6 +24,7 @@ final class Currency
 final class Money
 {
     private $amount;
+
     private $currency;
 
     public function __construct(int $amount, Currency $currency)
@@ -28,7 +37,9 @@ final class Money
 final class ShoppingCartItem
 {
     private $description;
+
     private $unitPrice;
+
     private $quantity;
 
     public function __construct(string $description, Money $unitPrice, int $quantity)
