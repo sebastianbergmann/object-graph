@@ -24,16 +24,6 @@ use PHPUnit\Framework\TestCase;
  */
 final class DotWriterTest extends TestCase
 {
-    /**
-     * @var DotWriter
-     */
-    private $dotWriter;
-
-    /**
-     * @var string
-     */
-    private $actualFile;
-
     public function testCanGenerateDotMarkupFromNodeCollection(): void
     {
         $a      = new \stdClass;
