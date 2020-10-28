@@ -9,8 +9,6 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
-use org\bovigo\vfs\vfsStream;
-use org\bovigo\vfs\vfsStreamDirectory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -32,21 +30,9 @@ final class DotWriterTest extends TestCase
     private $dotWriter;
 
     /**
-     * @var vfsStreamDirectory
-     */
-    private $root;
-
-    /**
      * @var string
      */
     private $actualFile;
-
-    protected function setUp(): void
-    {
-        $this->dotWriter  = new DotWriter;
-        $this->root       = vfsStream::setup();
-        $this->actualFile = vfsStream::url('root') . '/graph.dot';
-    }
 
     public function testCanGenerateDotMarkupFromNodeCollection(): void
     {
@@ -57,11 +43,11 @@ final class DotWriterTest extends TestCase
         $a->bar = $b;
         $a->baz = [[$b], true];
 
-        $builder = new Builder;
-        $nodes   = $builder->build($a);
+        $nodes = (new Builder)->build($a);
 
-        $this->dotWriter->write($this->actualFile, $nodes);
-
-        $this->assertFileEquals(__DIR__ . '/_fixture/graph.dot', $this->actualFile);
+        $this->assertStringEqualsFile(
+            __DIR__ . '/_fixture/graph.dot',
+            (new DotWriter)->render($nodes)
+        );
     }
 }

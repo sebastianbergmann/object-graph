@@ -11,7 +11,15 @@ namespace SebastianBergmann\ObjectGraph;
 
 final class DotWriter
 {
+    /**
+     * @codeCoverageIgnore
+     */
     public function write(string $filename, NodeCollection $nodes): void
+    {
+        \file_put_contents($filename, $this->render($nodes));
+    }
+
+    public function render(NodeCollection $nodes): string
     {
         $buffer = <<<EOT
 digraph G {
@@ -70,9 +78,7 @@ EOT;
             }
         }
 
-        $buffer .= '}' . \PHP_EOL;
-
-        \file_put_contents($filename, $buffer);
+        return $buffer . '}' . \PHP_EOL;
     }
 
     private function arrayToString(array $array): string

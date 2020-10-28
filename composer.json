@@ -22,9 +22,6 @@
     "sebastian/object-enumerator": "^4.0",
     "sebastian/object-reflector": "^2.0"
   },
-  "require-dev": {
-    "mikey179/vfsstream": "^1.6"
-  },
   "autoload": {
     "classmap": [
       "src/"
