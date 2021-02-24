@@ -2,13 +2,7 @@
 
 All notable changes to `sebastian/object-graph` are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## [2.0.1] - 2021-MM-DD
-
-### Changed
-
-* Changed PHP version constraint in `composer.json` from `^7.4` to `>=7.4`
-
-## [2.0.0] - 2020-02-11
+## [2.0.0] - 2021-02-24
 
 ### Removed
 
@@ -30,7 +24,6 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 * Initial release
 
-[2.0.1]: https://github.com/sebastianbergmann/object-graph/compare/2.0.0...master
 [2.0.0]: https://github.com/sebastianbergmann/object-graph/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/sebastianbergmann/object-graph/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/sebastianbergmann/object-graph/compare/1.0.0...1.0.1
