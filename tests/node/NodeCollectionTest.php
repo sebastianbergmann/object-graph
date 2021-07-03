@@ -44,7 +44,12 @@ final class NodeCollectionTest extends TestCase
         }
     }
 
-    public function testNodeThatDoesNotExistCannotBeRetrieved(): void
+    public function testNodeCanBeAccessedById(): void
+    {
+        $this->assertSame(1, $this->nodeCollection->findNodeById(1)->getId());
+    }
+
+    public function testNodeThatDoesNotExistCannotBeAccessedById(): void
     {
         $this->expectException(OutOfBoundsException::class);
 
