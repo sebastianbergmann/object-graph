@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.x-dev@">
   <file src="src/Builder.php">
-    <InvalidArgument occurrences="2">
-      <code>$map</code>
-      <code>$map</code>
+    <InvalidArgument occurrences="4">
+      <code>$id++</code>
+      <code>$object</code>
+      <code>$object</code>
+      <code>$value</code>
     </InvalidArgument>
-    <InvalidArrayOffset occurrences="4">
-      <code>$map[$object]</code>
-      <code>$map[$object]</code>
-      <code>$map[$value]</code>
-      <code>$map[$value]</code>
-    </InvalidArrayOffset>
     <MissingParamType occurrences="1">
       <code>$objectGraph</code>
     </MissingParamType>
     <MissingThrowsDocblock occurrences="1">
       <code>new NodeCollection($nodes)</code>
     </MissingThrowsDocblock>
-    <MixedArgument occurrences="2">
+    <MixedArgument occurrences="5">
+      <code>$map[$object]</code>
+      <code>$map[$value]</code>
+      <code>$map[$value]</code>
       <code>$objectGraph</code>
       <code>$objectGraph</code>
     </MixedArgument>

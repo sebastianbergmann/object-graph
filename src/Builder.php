@@ -24,7 +24,6 @@ final class Builder
      */
     public function build($objectGraph): NodeCollection
     {
-        /** @var int[] $map */
         $map        = new SplObjectStorage;
         $enumerator = new Enumerator;
         $id         = 1;
@@ -55,7 +54,6 @@ final class Builder
 
     private function processArray(array $array, SplObjectStorage $map): array
     {
-        /** @var int[] $map */
         $result = [];
 
         foreach ($array as $key => $value) {
