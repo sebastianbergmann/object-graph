@@ -10,19 +10,20 @@
 namespace SebastianBergmann\ObjectGraph;
 
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * @covers \SebastianBergmann\ObjectGraph\NodeCollectionIterator
  *
  * @uses \SebastianBergmann\ObjectGraph\Builder
- * @uses \SebastianBergmann\ObjectGraph\NodeCollection
  * @uses \SebastianBergmann\ObjectGraph\Node
+ * @uses \SebastianBergmann\ObjectGraph\NodeCollection
  */
 final class NodeCollectionIteratorTest extends TestCase
 {
     public function testCanIterateNodeCollection(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
 
         foreach ((new Builder)->build($a) as $key => $node) {

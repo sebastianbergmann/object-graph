@@ -10,13 +10,14 @@
 namespace SebastianBergmann\ObjectGraph;
 
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * @covers \SebastianBergmann\ObjectGraph\NodeCollection
  *
  * @uses \SebastianBergmann\ObjectGraph\Builder
- * @uses \SebastianBergmann\ObjectGraph\NodeCollectionIterator
  * @uses \SebastianBergmann\ObjectGraph\Node
+ * @uses \SebastianBergmann\ObjectGraph\NodeCollectionIterator
  */
 final class NodeCollectionTest extends TestCase
 {
@@ -27,7 +28,7 @@ final class NodeCollectionTest extends TestCase
 
     protected function setUp(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
 
         $this->nodeCollection = (new Builder)->build($a);

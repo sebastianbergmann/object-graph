@@ -14,8 +14,8 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \SebastianBergmann\ObjectGraph\NodeReferenceCollectionIterator
  *
- * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollection
  * @uses \SebastianBergmann\ObjectGraph\NodeReference
+ * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollection
  */
 final class NodeReferenceCollectionIteratorTest extends TestCase
 {

@@ -9,14 +9,16 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
-final class NodeCollection implements \Countable, \IteratorAggregate
+use function count;
+use Countable;
+use IteratorAggregate;
+
+final class NodeCollection implements Countable, IteratorAggregate
 {
     /**
      * @var Node[]
      */
-    private array
-
- $nodes;
+    private array $nodes;
 
     /**
      * @param Node[] $nodes
@@ -38,7 +40,7 @@ final class NodeCollection implements \Countable, \IteratorAggregate
 
     public function count(): int
     {
-        return \count($this->nodes);
+        return count($this->nodes);
     }
 
     /**

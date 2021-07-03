@@ -11,13 +11,14 @@ namespace SebastianBergmann\ObjectGraph;
 
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\ObjectGraph\TestFixture\ChildClass;
+use stdClass;
 
 /**
  * @covers \SebastianBergmann\ObjectGraph\Builder
  *
+ * @uses \SebastianBergmann\ObjectGraph\Node
  * @uses \SebastianBergmann\ObjectGraph\NodeCollection
  * @uses \SebastianBergmann\ObjectGraph\NodeCollectionIterator
- * @uses \SebastianBergmann\ObjectGraph\Node
  * @uses \SebastianBergmann\ObjectGraph\NodeReference
  * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollection
  */
@@ -35,7 +36,7 @@ final class BuilderTest extends TestCase
 
     public function testCanBuildNodeCollectionFromSingleObject(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
 
         $nodeCollection = $this->builder->build($a);
@@ -44,14 +45,14 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(\stdClass::class, $node->getClassName());
+        $this->assertEquals(stdClass::class, $node->getClassName());
         $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
         $this->assertFalse($node->referencesNodes());
     }
 
     public function testCanBuildNodeCollectionFromSingleObjectStoredInArray(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
 
         $nodeCollection = $this->builder->build([$a]);
@@ -60,14 +61,14 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(\stdClass::class, $node->getClassName());
+        $this->assertEquals(stdClass::class, $node->getClassName());
         $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
         $this->assertFalse($node->referencesNodes());
     }
 
     public function testCanBuildNodeCollectionFromSingleObjectStoredInNestedArray(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
 
         $nodeCollection = $this->builder->build([[$a]]);
@@ -76,14 +77,14 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(\stdClass::class, $node->getClassName());
+        $this->assertEquals(stdClass::class, $node->getClassName());
         $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
         $this->assertFalse($node->referencesNodes());
     }
 
     public function testCanBuildNodeCollectionFromArrayWithMultipleReferencesToTheSameObject(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
 
         $nodeCollection = $this->builder->build([$a, $a]);
@@ -92,17 +93,17 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(\stdClass::class, $node->getClassName());
+        $this->assertEquals(stdClass::class, $node->getClassName());
         $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
         $this->assertFalse($node->referencesNodes());
     }
 
     public function testCanBuildNodeCollectionFromArrayWithMultipleObjects(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
 
-        $b      = new \stdClass;
+        $b      = new stdClass;
         $b->bar = 'foo';
 
         $nodeCollection = $this->builder->build([$a, $b]);
@@ -112,19 +113,19 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
+        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
         $this->assertEquals(['foo' => 'bar'], $nodeOne->getAttributes());
         $this->assertFalse($nodeOne->referencesNodes());
-        $this->assertEquals(\stdClass::class, $nodeTwo->getClassName());
+        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
         $this->assertEquals(['bar' => 'foo'], $nodeTwo->getAttributes());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
     public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObject(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
-        $b      = new \stdClass;
+        $b      = new stdClass;
         $b->bar = 'foo';
         $a->bar = $b;
 
@@ -135,20 +136,20 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
+        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
         $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
         $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['bar']->getId());
         $this->assertTrue($nodeOne->referencesNodes());
-        $this->assertEquals(\stdClass::class, $nodeTwo->getClassName());
+        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
         $this->assertEquals(['bar' => 'foo'], $nodeTwo->getAttributes());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
     public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObjectInArray(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
-        $b      = new \stdClass;
+        $b      = new stdClass;
         $b->bar = 'foo';
         $a->bar = [$b];
 
@@ -159,20 +160,20 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
+        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
         $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
         $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['bar'][0]->getId());
         $this->assertTrue($nodeOne->referencesNodes());
-        $this->assertEquals(\stdClass::class, $nodeTwo->getClassName());
+        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
         $this->assertEquals(['bar' => 'foo'], $nodeTwo->getAttributes());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
     public function testCanBuildNodeCollectionFromObjectThatAggregatesAnotherObjectInNestedArray(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
-        $b      = new \stdClass;
+        $b      = new stdClass;
         $b->bar = 'foo';
         $a->bar = [[$b]];
 
@@ -183,21 +184,21 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
+        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
         $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
         $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['bar'][0][0]->getId());
         $this->assertTrue($nodeOne->referencesNodes());
-        $this->assertEquals(\stdClass::class, $nodeTwo->getClassName());
+        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
         $this->assertEquals(['bar' => 'foo'], $nodeTwo->getAttributes());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
     public function testCanBuildNodeCollectionFromObjectsWithCyclicReference(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = 'bar';
 
-        $b      = new \stdClass;
+        $b      = new stdClass;
         $b->bar = 'foo';
 
         $a->b = $b;
@@ -210,11 +211,11 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(\stdClass::class, $nodeOne->getClassName());
+        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
         $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['b']->getId());
         $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
         $this->assertTrue($nodeOne->referencesNodes());
-        $this->assertEquals(\stdClass::class, $nodeTwo->getClassName());
+        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
         $this->assertEquals($nodeOne->getId(), $nodeTwo->getAttributes()['a']->getId());
         $this->assertEquals('foo', $nodeTwo->getAttributes()['bar']);
         $this->assertTrue($nodeTwo->referencesNodes());

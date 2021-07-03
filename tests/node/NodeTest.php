@@ -10,6 +10,7 @@
 namespace SebastianBergmann\ObjectGraph;
 
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * @covers \SebastianBergmann\ObjectGraph\Node
@@ -26,7 +27,7 @@ final class NodeTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->node = new Node(1, \stdClass::class, ['foo' => new NodeReference(2)]);
+        $this->node = new Node(1, stdClass::class, ['foo' => new NodeReference(2)]);
     }
 
     public function testCanBeIdentified(): void
@@ -36,7 +37,7 @@ final class NodeTest extends TestCase
 
     public function testClassNameCanBeQueried(): void
     {
-        $this->assertEquals(\stdClass::class, $this->node->getClassName());
+        $this->assertEquals(stdClass::class, $this->node->getClassName());
     }
 
     public function testAttributesCanBeQueried(): void

@@ -10,14 +10,15 @@
 namespace SebastianBergmann\ObjectGraph;
 
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 /**
  * @covers \SebastianBergmann\ObjectGraph\DotWriter
  *
  * @uses \SebastianBergmann\ObjectGraph\Builder
+ * @uses \SebastianBergmann\ObjectGraph\Node
  * @uses \SebastianBergmann\ObjectGraph\NodeCollection
  * @uses \SebastianBergmann\ObjectGraph\NodeCollectionIterator
- * @uses \SebastianBergmann\ObjectGraph\Node
  * @uses \SebastianBergmann\ObjectGraph\NodeReference
  * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollection
  * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollectionIterator
@@ -26,9 +27,9 @@ final class DotWriterTest extends TestCase
 {
     public function testCanGenerateDotMarkupFromNodeCollection(): void
     {
-        $a      = new \stdClass;
+        $a      = new stdClass;
         $a->foo = '<? bar';
-        $b      = new \stdClass;
+        $b      = new stdClass;
         $b->bar = 'foo';
         $a->bar = $b;
         $a->baz = [[$b], true];

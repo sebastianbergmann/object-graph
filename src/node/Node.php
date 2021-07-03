@@ -9,15 +9,17 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use function count;
+use RecursiveArrayIterator;
+use RecursiveIteratorIterator;
+
 final class Node
 {
     private int $id;
 
     private string $className;
 
-    private array
-
- $attributes = [];
+    private array $attributes;
 
     private ?NodeReferenceCollection $referencedNodes = null;
 
@@ -51,10 +53,10 @@ final class Node
 
         $referencedNodes = [];
 
-        $iterator = new \RecursiveIteratorIterator(
-            new \RecursiveArrayIterator(
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveArrayIterator(
                 $this->attributes,
-                \RecursiveArrayIterator::CHILD_ARRAYS_ONLY
+                RecursiveArrayIterator::CHILD_ARRAYS_ONLY
             )
         );
 
@@ -71,6 +73,6 @@ final class Node
 
     public function referencesNodes(): bool
     {
-        return \count($this->getReferencedNodes()) > 0;
+        return count($this->getReferencedNodes()) > 0;
     }
 }

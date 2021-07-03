@@ -9,8 +9,12 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use function get_class;
+use function is_array;
+use function is_object;
 use SebastianBergmann\ObjectEnumerator\Enumerator;
 use SebastianBergmann\ObjectReflector\ObjectReflector;
+use SplObjectStorage;
 
 final class Builder
 {
@@ -21,7 +25,7 @@ final class Builder
     public function build($objectGraph): NodeCollection
     {
         /** @var int[] $map */
-        $map        = new \SplObjectStorage;
+        $map        = new SplObjectStorage;
         $enumerator = new Enumerator;
         $id         = 1;
         $nodes      = [];
@@ -34,30 +38,30 @@ final class Builder
             $attributes = [];
 
             foreach ((new ObjectReflector)->getAttributes($object) as $name => $value) {
-                if (\is_array($value)) {
+                if (is_array($value)) {
                     $value = $this->processArray($value, $map);
-                } elseif (\is_object($value)) {
+                } elseif (is_object($value)) {
                     $value = new NodeReference($map[$value]);
                 }
 
                 $attributes[$name] = $value;
             }
 
-            $nodes[] = new Node($map[$object], \get_class($object), $attributes);
+            $nodes[] = new Node($map[$object], get_class($object), $attributes);
         }
 
         return new NodeCollection($nodes);
     }
 
-    private function processArray(array $array, \SplObjectStorage $map): array
+    private function processArray(array $array, SplObjectStorage $map): array
     {
         /** @var int[] $map */
         $result = [];
 
         foreach ($array as $key => $value) {
-            if (\is_array($value)) {
+            if (is_array($value)) {
                 $value = $this->processArray($value, $map);
-            } elseif (\is_object($value)) {
+            } elseif (is_object($value)) {
                 $value = new NodeReference($map[$value]);
             }
 

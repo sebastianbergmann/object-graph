@@ -9,14 +9,15 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
-final class NodeReferenceCollectionIterator implements \Iterator
+use function count;
+use Iterator;
+
+final class NodeReferenceCollectionIterator implements Iterator
 {
     /**
      * @var NodeReference[]
      */
-    private array
-
- $elements;
+    private array $elements;
 
     private int $position;
 
@@ -32,7 +33,7 @@ final class NodeReferenceCollectionIterator implements \Iterator
 
     public function valid(): bool
     {
-        return $this->position < \count($this->elements);
+        return $this->position < count($this->elements);
     }
 
     public function key(): int

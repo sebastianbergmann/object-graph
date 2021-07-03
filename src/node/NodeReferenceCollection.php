@@ -9,14 +9,16 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
-final class NodeReferenceCollection implements \Countable, \IteratorAggregate
+use function count;
+use Countable;
+use IteratorAggregate;
+
+final class NodeReferenceCollection implements Countable, IteratorAggregate
 {
     /**
      * @var NodeReference[]
      */
-    private array
-
- $references;
+    private array $references;
 
     /**
      * @param NodeReference[] $references
@@ -38,7 +40,7 @@ final class NodeReferenceCollection implements \Countable, \IteratorAggregate
 
     public function count(): int
     {
-        return \count($this->references);
+        return count($this->references);
     }
 
     /**
