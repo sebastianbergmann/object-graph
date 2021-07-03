@@ -18,14 +18,12 @@ use function tempnam;
 use function unlink;
 
 /**
- * @psalm-param array|object $objectGraph
- *
  * @throws InvalidArgumentException
  * @throws RuntimeException
  *
  * @codeCoverageIgnore
  */
-function object_graph_dump(string $filename, $objectGraph): void
+function object_graph_dump(string $filename, array|object $objectGraph): void
 {
     $format = pathinfo($filename, PATHINFO_EXTENSION);
     $nodes  = (new Builder)->build($objectGraph);

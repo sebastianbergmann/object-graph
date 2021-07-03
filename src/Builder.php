@@ -21,11 +21,9 @@ use SplObjectStorage;
 final class Builder
 {
     /**
-     * @psalm-param array|object $objectGraph
-     *
      * @throws RuntimeException
      */
-    public function build($objectGraph): NodeCollection
+    public function build(array|object $objectGraph): NodeCollection
     {
         /** @psalm-var SplObjectStorage<object,int> */
         $map   = new SplObjectStorage;
