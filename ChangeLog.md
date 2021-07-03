@@ -4,6 +4,10 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 ## [3.0.0] - 202Y-MM-DD
 
+### Removed
+
+* This component is no longer supported on PHP 7.4
+
 ## [2.0.0] - 2021-02-24
 
 ### Removed
