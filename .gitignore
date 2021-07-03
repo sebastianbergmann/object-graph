@@ -1,6 +1,8 @@
 /.idea
-/.php_cs
-/.php_cs.cache
-/.phpunit.cache
-/composer.lock
 /vendor
+/composer.lock
+/.ant_targets
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+/.psalm/cache
+/.phpunit.cache

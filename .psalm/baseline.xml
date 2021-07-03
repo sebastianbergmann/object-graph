@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.11.4@58e1d8e68e5098bf4fbfdfb420c38d563f882549">
+<files psalm-version="4.x-dev@">
   <file src="src/Builder.php">
     <InvalidArgument occurrences="2">
       <code>$map</code>
       <code>$map</code>
     </InvalidArgument>
-    <InvalidArrayOffset occurrences="1">
+    <InvalidArrayOffset occurrences="4">
+      <code>$map[$object]</code>
+      <code>$map[$object]</code>
+      <code>$map[$value]</code>
       <code>$map[$value]</code>
     </InvalidArrayOffset>
     <MissingParamType occurrences="1">
       <code>$objectGraph</code>
     </MissingParamType>
+    <MissingThrowsDocblock occurrences="1">
+      <code>new NodeCollection($nodes)</code>
+    </MissingThrowsDocblock>
     <MixedArgument occurrences="2">
       <code>$objectGraph</code>
       <code>$objectGraph</code>
     </MixedArgument>
     <MixedAssignment occurrences="4">
-      <code>$value</code>
       <code>$attributes[$name]</code>
-      <code>$value</code>
       <code>$result[$key]</code>
+      <code>$value</code>
+      <code>$value</code>
     </MixedAssignment>
   </file>
   <file src="src/DotWriter.php">
@@ -32,8 +38,17 @@
     <MissingParamType occurrences="1">
       <code>$objectGraph</code>
     </MissingParamType>
+    <MissingThrowsDocblock occurrences="1">
+      <code>build</code>
+    </MissingThrowsDocblock>
   </file>
   <file src="src/node/Node.php">
+    <InvalidArgument occurrences="1">
+      <code>RecursiveArrayIterator::CHILD_ARRAYS_ONLY</code>
+    </InvalidArgument>
+    <MissingThrowsDocblock occurrences="1">
+      <code>new NodeReferenceCollection($referencedNodes)</code>
+    </MissingThrowsDocblock>
     <MixedAssignment occurrences="1">
       <code>$element</code>
     </MixedAssignment>
