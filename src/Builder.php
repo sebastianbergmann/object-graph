@@ -34,12 +34,14 @@ final class Builder
 
         try {
             $objects = (new Enumerator)->enumerate($objectGraph);
+            // @codeCoverageIgnoreStart
         } catch (ObjectEnumeratorException $e) {
             throw new RuntimeException(
                 $e->getMessage(),
                 (int) $e->getCode(),
                 $e
             );
+            // @codeCoverageIgnoreEnd
         }
 
         foreach ($objects as $object) {
@@ -51,12 +53,14 @@ final class Builder
 
             try {
                 $reflectedAttributes = (new ObjectReflector)->getAttributes($object);
+                // @codeCoverageIgnoreStart
             } catch (ObjectReflectorException $e) {
                 throw new RuntimeException(
                     $e->getMessage(),
                     (int) $e->getCode(),
                     $e
                 );
+                // @codeCoverageIgnoreEnd
             }
 
             foreach ($reflectedAttributes as $name => $value) {
