@@ -29,22 +29,22 @@ final class NodeTest extends TestCase
 
     public function testCanBeIdentified(): void
     {
-        $this->assertEquals(1, $this->node->getId());
+        $this->assertEquals(1, $this->node->id());
     }
 
     public function testClassNameCanBeQueried(): void
     {
-        $this->assertEquals(stdClass::class, $this->node->getClassName());
+        $this->assertEquals(stdClass::class, $this->node->className());
     }
 
     public function testAttributesCanBeQueried(): void
     {
-        $this->assertEquals(['foo' => new NodeReference(2)], $this->node->getAttributes());
+        $this->assertEquals(['foo' => new NodeReference(2)], $this->node->attributes());
     }
 
     public function testReferencedNodesCanBeQueried(): void
     {
         $this->assertTrue($this->node->referencesNodes());
-        $this->assertEquals(new NodeReferenceCollection(new NodeReference(2)), $this->node->getReferencedNodes());
+        $this->assertEquals(new NodeReferenceCollection(new NodeReference(2)), $this->node->referencedNodes());
     }
 }

@@ -34,7 +34,7 @@ final class NodeReferenceCollection implements Countable, IteratorAggregate
     /**
      * @psalm-return list<NodeReference>
      */
-    public function getReferences(): array
+    public function asArray(): array
     {
         return $this->references;
     }

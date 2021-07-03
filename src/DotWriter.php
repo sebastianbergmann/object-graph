@@ -41,9 +41,9 @@ EOT;
         foreach ($nodes as $node) {
             $attributes = '';
 
-            foreach ($node->getAttributes() as $name => $value) {
+            foreach ($node->attributes() as $name => $value) {
                 if ($value instanceof NodeReference) {
-                    $value = '#' . $value->getId();
+                    $value = '#' . $value->id();
                 } elseif (is_array($value)) {
                     $value = $this->arrayToString($value);
                 } else {
@@ -59,10 +59,10 @@ EOT;
 
             $buffer .= sprintf(
                 '    "object%d" [style="filled,bold", penwidth="%d", fillcolor="white", fontname="Courier New", shape="Mrecord", label=<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="black" align="left"><font color="white">#%d</font></td><td bgcolor="black" align="right"><font color="white">%s</font></td></tr>%s</table>>];' . PHP_EOL,
-                $node->getId(),
-                $node->getId() === 1 ? 2 : 1,
-                $node->getId(),
-                str_replace('\\', '\\\\', $node->getClassName()),
+                $node->id(),
+                $node->id() === 1 ? 2 : 1,
+                $node->id(),
+                str_replace('\\', '\\\\', $node->className()),
                 $attributes
             );
         }
@@ -72,18 +72,18 @@ EOT;
         foreach ($nodes as $node) {
             $processedReferencedNodes = [];
 
-            foreach ($node->getReferencedNodes() as $referencedNode) {
-                if (isset($processedReferencedNodes[$referencedNode->getId()])) {
+            foreach ($node->referencedNodes() as $referencedNode) {
+                if (isset($processedReferencedNodes[$referencedNode->id()])) {
                     continue;
                 }
 
                 $buffer .= sprintf(
                     '    object%d -> object%d;' . PHP_EOL,
-                    $node->getId(),
-                    $referencedNode->getId()
+                    $node->id(),
+                    $referencedNode->id()
                 );
 
-                $processedReferencedNodes[$referencedNode->getId()] = true;
+                $processedReferencedNodes[$referencedNode->id()] = true;
             }
         }
 
@@ -96,7 +96,7 @@ EOT;
 
         foreach ($array as $key => $value) {
             if ($value instanceof NodeReference) {
-                $value = '#' . $value->getId();
+                $value = '#' . $value->id();
             } elseif (is_array($value)) {
                 $value = $this->arrayToString($value);
             } else {

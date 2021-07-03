@@ -17,13 +17,13 @@ final class NodeReferenceCollectionIterator implements Iterator
     /**
      * @psalm-var list<NodeReference>
      */
-    private array $elements;
+    private array $references;
 
     private int $position = 0;
 
-    public function __construct(NodeReferenceCollection $collection)
+    public function __construct(NodeReferenceCollection $references)
     {
-        $this->elements = $collection->getReferences();
+        $this->references = $references->asArray();
     }
 
     public function rewind(): void
@@ -33,7 +33,7 @@ final class NodeReferenceCollectionIterator implements Iterator
 
     public function valid(): bool
     {
-        return $this->position < count($this->elements);
+        return $this->position < count($this->references);
     }
 
     public function key(): int
@@ -43,7 +43,7 @@ final class NodeReferenceCollectionIterator implements Iterator
 
     public function current(): NodeReference
     {
-        return $this->elements[$this->position];
+        return $this->references[$this->position];
     }
 
     public function next(): void

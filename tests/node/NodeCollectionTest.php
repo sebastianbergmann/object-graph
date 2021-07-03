@@ -46,7 +46,7 @@ final class NodeCollectionTest extends TestCase
 
     public function testNodeCanBeAccessedById(): void
     {
-        $this->assertSame(1, $this->nodeCollection->findNodeById(1)->getId());
+        $this->assertSame(1, $this->nodeCollection->findNodeById(1)->id());
     }
 
     public function testNodeThatDoesNotExistCannotBeAccessedById(): void

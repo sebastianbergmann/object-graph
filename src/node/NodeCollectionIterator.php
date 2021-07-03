@@ -17,13 +17,13 @@ final class NodeCollectionIterator implements Iterator
     /**
      * @psalm-var array<int,Node>
      */
-    private array $elements;
+    private array $nodes;
 
     private int $position = 1;
 
-    public function __construct(NodeCollection $collection)
+    public function __construct(NodeCollection $nodes)
     {
-        $this->elements = $collection->asArray();
+        $this->nodes = $nodes->asArray();
     }
 
     public function rewind(): void
@@ -33,7 +33,7 @@ final class NodeCollectionIterator implements Iterator
 
     public function valid(): bool
     {
-        return $this->position <= count($this->elements);
+        return $this->position <= count($this->nodes);
     }
 
     public function key(): int
@@ -43,7 +43,7 @@ final class NodeCollectionIterator implements Iterator
 
     public function current(): Node
     {
-        return $this->elements[$this->position];
+        return $this->nodes[$this->position];
     }
 
     public function next(): void

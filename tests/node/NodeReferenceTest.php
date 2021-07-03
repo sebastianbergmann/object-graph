@@ -25,6 +25,6 @@ final class NodeReferenceTest extends TestCase
 
     public function testCanBeIdentified(): void
     {
-        $this->assertEquals(1, $this->nodeReference->getId());
+        $this->assertEquals(1, $this->nodeReference->id());
     }
 }

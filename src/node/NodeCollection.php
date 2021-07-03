@@ -23,7 +23,7 @@ final class NodeCollection implements Countable, IteratorAggregate
     public function __construct(Node ...$nodes)
     {
         foreach ($nodes as $node) {
-            $this->nodes[$node->getId()] = $node;
+            $this->nodes[$node->id()] = $node;
         }
     }
 

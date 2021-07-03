@@ -30,22 +30,22 @@ final class Node
         $this->attributes = $attributes;
     }
 
-    public function getAttributes(): array
+    public function attributes(): array
     {
         return $this->attributes;
     }
 
-    public function getClassName(): string
+    public function className(): string
     {
         return $this->className;
     }
 
-    public function getId(): int
+    public function id(): int
     {
         return $this->id;
     }
 
-    public function getReferencedNodes(): NodeReferenceCollection
+    public function referencedNodes(): NodeReferenceCollection
     {
         if ($this->referencedNodes !== null) {
             return $this->referencedNodes;
@@ -73,6 +73,6 @@ final class Node
 
     public function referencesNodes(): bool
     {
-        return count($this->getReferencedNodes()) > 0;
+        return count($this->referencedNodes()) > 0;
     }
 }

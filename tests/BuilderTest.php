@@ -42,8 +42,8 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(stdClass::class, $node->getClassName());
-        $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
+        $this->assertEquals(stdClass::class, $node->className());
+        $this->assertEquals(['foo' => 'bar'], $node->attributes());
         $this->assertFalse($node->referencesNodes());
     }
 
@@ -58,8 +58,8 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(stdClass::class, $node->getClassName());
-        $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
+        $this->assertEquals(stdClass::class, $node->className());
+        $this->assertEquals(['foo' => 'bar'], $node->attributes());
         $this->assertFalse($node->referencesNodes());
     }
 
@@ -74,8 +74,8 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(stdClass::class, $node->getClassName());
-        $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
+        $this->assertEquals(stdClass::class, $node->className());
+        $this->assertEquals(['foo' => 'bar'], $node->attributes());
         $this->assertFalse($node->referencesNodes());
     }
 
@@ -90,8 +90,8 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(stdClass::class, $node->getClassName());
-        $this->assertEquals(['foo' => 'bar'], $node->getAttributes());
+        $this->assertEquals(stdClass::class, $node->className());
+        $this->assertEquals(['foo' => 'bar'], $node->attributes());
         $this->assertFalse($node->referencesNodes());
     }
 
@@ -110,11 +110,11 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
-        $this->assertEquals(['foo' => 'bar'], $nodeOne->getAttributes());
+        $this->assertEquals(stdClass::class, $nodeOne->className());
+        $this->assertEquals(['foo' => 'bar'], $nodeOne->attributes());
         $this->assertFalse($nodeOne->referencesNodes());
-        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
-        $this->assertEquals(['bar' => 'foo'], $nodeTwo->getAttributes());
+        $this->assertEquals(stdClass::class, $nodeTwo->className());
+        $this->assertEquals(['bar' => 'foo'], $nodeTwo->attributes());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
@@ -133,12 +133,12 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
-        $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
-        $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['bar']->getId());
+        $this->assertEquals(stdClass::class, $nodeOne->className());
+        $this->assertEquals('bar', $nodeOne->attributes()['foo']);
+        $this->assertEquals($nodeTwo->id(), $nodeOne->attributes()['bar']->id());
         $this->assertTrue($nodeOne->referencesNodes());
-        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
-        $this->assertEquals(['bar' => 'foo'], $nodeTwo->getAttributes());
+        $this->assertEquals(stdClass::class, $nodeTwo->className());
+        $this->assertEquals(['bar' => 'foo'], $nodeTwo->attributes());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
@@ -157,12 +157,12 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
-        $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
-        $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['bar'][0]->getId());
+        $this->assertEquals(stdClass::class, $nodeOne->className());
+        $this->assertEquals('bar', $nodeOne->attributes()['foo']);
+        $this->assertEquals($nodeTwo->id(), $nodeOne->attributes()['bar'][0]->id());
         $this->assertTrue($nodeOne->referencesNodes());
-        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
-        $this->assertEquals(['bar' => 'foo'], $nodeTwo->getAttributes());
+        $this->assertEquals(stdClass::class, $nodeTwo->className());
+        $this->assertEquals(['bar' => 'foo'], $nodeTwo->attributes());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
@@ -181,12 +181,12 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
-        $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
-        $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['bar'][0][0]->getId());
+        $this->assertEquals(stdClass::class, $nodeOne->className());
+        $this->assertEquals('bar', $nodeOne->attributes()['foo']);
+        $this->assertEquals($nodeTwo->id(), $nodeOne->attributes()['bar'][0][0]->id());
         $this->assertTrue($nodeOne->referencesNodes());
-        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
-        $this->assertEquals(['bar' => 'foo'], $nodeTwo->getAttributes());
+        $this->assertEquals(stdClass::class, $nodeTwo->className());
+        $this->assertEquals(['bar' => 'foo'], $nodeTwo->attributes());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
@@ -208,13 +208,13 @@ final class BuilderTest extends TestCase
         $nodeOne = $nodeCollection->findNodeById(1);
         $nodeTwo = $nodeCollection->findNodeById(2);
 
-        $this->assertEquals(stdClass::class, $nodeOne->getClassName());
-        $this->assertEquals($nodeTwo->getId(), $nodeOne->getAttributes()['b']->getId());
-        $this->assertEquals('bar', $nodeOne->getAttributes()['foo']);
+        $this->assertEquals(stdClass::class, $nodeOne->className());
+        $this->assertEquals($nodeTwo->id(), $nodeOne->attributes()['b']->id());
+        $this->assertEquals('bar', $nodeOne->attributes()['foo']);
         $this->assertTrue($nodeOne->referencesNodes());
-        $this->assertEquals(stdClass::class, $nodeTwo->getClassName());
-        $this->assertEquals($nodeOne->getId(), $nodeTwo->getAttributes()['a']->getId());
-        $this->assertEquals('foo', $nodeTwo->getAttributes()['bar']);
+        $this->assertEquals(stdClass::class, $nodeTwo->className());
+        $this->assertEquals($nodeOne->id(), $nodeTwo->attributes()['a']->id());
+        $this->assertEquals('foo', $nodeTwo->attributes()['bar']);
         $this->assertTrue($nodeTwo->referencesNodes());
     }
 
@@ -228,8 +228,8 @@ final class BuilderTest extends TestCase
 
         $node = $nodeCollection->findNodeById(1);
 
-        $this->assertEquals(ChildClass::class, $node->getClassName());
-        $this->assertEquals(['SebastianBergmann\ObjectGraph\TestFixture\ParentClass::foo' => 'bar'], $node->getAttributes());
+        $this->assertEquals(ChildClass::class, $node->className());
+        $this->assertEquals(['SebastianBergmann\ObjectGraph\TestFixture\ParentClass::foo' => 'bar'], $node->attributes());
         $this->assertFalse($node->referencesNodes());
     }
 }
