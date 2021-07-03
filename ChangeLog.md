@@ -2,6 +2,8 @@
 
 All notable changes to `sebastian/object-graph` are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [3.0.0] - 202Y-MM-DD
+
 ## [2.0.0] - 2021-02-24
 
 ### Removed
@@ -24,6 +26,7 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 * Initial release
 
+[3.0.0]: https://github.com/sebastianbergmann/object-graph/compare/2.0.0...master
 [2.0.0]: https://github.com/sebastianbergmann/object-graph/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/sebastianbergmann/object-graph/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/sebastianbergmann/object-graph/compare/1.0.0...1.0.1
