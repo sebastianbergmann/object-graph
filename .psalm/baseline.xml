@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.x-dev@">
   <file src="src/Builder.php">
-    <InvalidArgument occurrences="4">
-      <code>$id++</code>
-      <code>$object</code>
-      <code>$object</code>
-      <code>$value</code>
-    </InvalidArgument>
-    <MissingParamType occurrences="1">
-      <code>$objectGraph</code>
-    </MissingParamType>
-    <MissingThrowsDocblock occurrences="1">
-      <code>new NodeCollection($nodes)</code>
-    </MissingThrowsDocblock>
-    <MixedArgument occurrences="5">
-      <code>$map[$object]</code>
-      <code>$map[$value]</code>
-      <code>$map[$value]</code>
-      <code>$objectGraph</code>
-      <code>$objectGraph</code>
-    </MixedArgument>
     <MixedAssignment occurrences="4">
       <code>$attributes[$name]</code>
       <code>$result[$key]</code>
@@ -33,49 +14,12 @@
       <code>$value</code>
     </MixedAssignment>
   </file>
-  <file src="src/functions.php">
-    <MissingParamType occurrences="1">
-      <code>$objectGraph</code>
-    </MissingParamType>
-    <MissingThrowsDocblock occurrences="1">
-      <code>build</code>
-    </MissingThrowsDocblock>
-  </file>
   <file src="src/node/Node.php">
     <InvalidArgument occurrences="1">
       <code>RecursiveArrayIterator::CHILD_ARRAYS_ONLY</code>
     </InvalidArgument>
-    <MissingThrowsDocblock occurrences="1">
-      <code>new NodeReferenceCollection($referencedNodes)</code>
-    </MissingThrowsDocblock>
     <MixedAssignment occurrences="1">
       <code>$element</code>
     </MixedAssignment>
-  </file>
-  <file src="src/node/NodeCollection.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$node instanceof Node</code>
-    </DocblockTypeContradiction>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$nodes</code>
-    </PropertyNotSetInConstructor>
-    <UninitializedProperty occurrences="1">
-      <code>$this-&gt;nodes</code>
-    </UninitializedProperty>
-  </file>
-  <file src="src/node/NodeCollectionIterator.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$position</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/node/NodeReferenceCollection.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$reference instanceof NodeReference</code>
-    </DocblockTypeContradiction>
-  </file>
-  <file src="src/node/NodeReferenceCollectionIterator.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$position</code>
-    </PropertyNotSetInConstructor>
   </file>
 </files>

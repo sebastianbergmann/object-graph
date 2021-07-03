@@ -15,11 +15,11 @@ use Iterator;
 final class NodeReferenceCollectionIterator implements Iterator
 {
     /**
-     * @var NodeReference[]
+     * @psalm-var list<NodeReference>
      */
     private array $elements;
 
-    private int $position;
+    private int $position = 0;
 
     public function __construct(NodeReferenceCollection $collection)
     {

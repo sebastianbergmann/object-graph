@@ -24,10 +24,7 @@ use stdClass;
  */
 final class BuilderTest extends TestCase
 {
-    /**
-     * @var Builder
-     */
-    private $builder;
+    private Builder $builder;
 
     protected function setUp(): void
     {

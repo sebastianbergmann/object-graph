@@ -20,10 +20,7 @@ use stdClass;
  */
 final class NodeTest extends TestCase
 {
-    /**
-     * @var Node
-     */
-    private $node;
+    private Node $node;
 
     protected function setUp(): void
     {
@@ -48,6 +45,6 @@ final class NodeTest extends TestCase
     public function testReferencedNodesCanBeQueried(): void
     {
         $this->assertTrue($this->node->referencesNodes());
-        $this->assertEquals(new NodeReferenceCollection([new NodeReference(2)]), $this->node->getReferencedNodes());
+        $this->assertEquals(new NodeReferenceCollection(new NodeReference(2)), $this->node->getReferencedNodes());
     }
 }

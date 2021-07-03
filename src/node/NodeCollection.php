@@ -16,24 +16,13 @@ use IteratorAggregate;
 final class NodeCollection implements Countable, IteratorAggregate
 {
     /**
-     * @var Node[]
+     * @psalm-var array<int,Node>
      */
-    private array $nodes;
+    private array $nodes = [];
 
-    /**
-     * @param Node[] $nodes
-     *
-     * @throws InvalidArgumentException
-     */
-    public function __construct(array $nodes)
+    public function __construct(Node ...$nodes)
     {
         foreach ($nodes as $node) {
-            if (!$node instanceof Node) {
-                throw new InvalidArgumentException(
-                    '$nodes must only contain Node objects'
-                );
-            }
-
             $this->nodes[$node->getId()] = $node;
         }
     }
@@ -44,7 +33,7 @@ final class NodeCollection implements Countable, IteratorAggregate
     }
 
     /**
-     * @return Node[]
+     * @psalm-return array<int,Node>
      */
     public function asArray(): array
     {

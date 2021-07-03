@@ -7,9 +7,8 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace SebastianBergmann\ObjectGraph\TestFixture;
+namespace SebastianBergmann\ObjectGraph;
 
-class ParentClass
+final class RuntimeException extends \RuntimeException implements Exception
 {
-    private string $foo = 'bar';
 }

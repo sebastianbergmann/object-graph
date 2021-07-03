@@ -13,30 +13,53 @@ use function get_class;
 use function is_array;
 use function is_object;
 use SebastianBergmann\ObjectEnumerator\Enumerator;
+use SebastianBergmann\ObjectEnumerator\Exception as ObjectEnumeratorException;
+use SebastianBergmann\ObjectReflector\Exception as ObjectReflectorException;
 use SebastianBergmann\ObjectReflector\ObjectReflector;
 use SplObjectStorage;
 
 final class Builder
 {
     /**
-     * @throws \SebastianBergmann\ObjectEnumerator\InvalidArgumentException
-     * @throws \SebastianBergmann\ObjectReflector\InvalidArgumentException
+     * @psalm-param array|object $objectGraph
+     *
+     * @throws RuntimeException
      */
     public function build($objectGraph): NodeCollection
     {
-        $map        = new SplObjectStorage;
-        $enumerator = new Enumerator;
-        $id         = 1;
-        $nodes      = [];
+        /** @psalm-var SplObjectStorage<object,int> */
+        $map   = new SplObjectStorage;
+        $id    = 1;
+        $nodes = [];
 
-        foreach ($enumerator->enumerate($objectGraph) as $object) {
+        try {
+            $objects = (new Enumerator)->enumerate($objectGraph);
+        } catch (ObjectEnumeratorException $e) {
+            throw new RuntimeException(
+                $e->getMessage(),
+                (int) $e->getCode(),
+                $e
+            );
+        }
+
+        foreach ($objects as $object) {
             $map[$object] = $id++;
         }
 
-        foreach ($enumerator->enumerate($objectGraph) as $object) {
+        foreach ($objects as $object) {
             $attributes = [];
 
-            foreach ((new ObjectReflector)->getAttributes($object) as $name => $value) {
+            try {
+                $reflectedAttributes = (new ObjectReflector)->getAttributes($object);
+            } catch (ObjectReflectorException $e) {
+                throw new RuntimeException(
+                    $e->getMessage(),
+                    (int) $e->getCode(),
+                    $e
+                );
+            }
+
+            foreach ($reflectedAttributes as $name => $value) {
                 if (is_array($value)) {
                     $value = $this->processArray($value, $map);
                 } elseif (is_object($value)) {
@@ -49,9 +72,12 @@ final class Builder
             $nodes[] = new Node($map[$object], get_class($object), $attributes);
         }
 
-        return new NodeCollection($nodes);
+        return new NodeCollection(...$nodes);
     }
 
+    /**
+     * @psalm-param SplObjectStorage<object,int> $map
+     */
     private function processArray(array $array, SplObjectStorage $map): array
     {
         $result = [];

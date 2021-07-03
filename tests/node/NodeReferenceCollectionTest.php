@@ -19,14 +19,11 @@ use PHPUnit\Framework\TestCase;
  */
 final class NodeReferenceCollectionTest extends TestCase
 {
-    /**
-     * @var NodeReferenceCollection
-     */
-    private $nodeReferenceCollection;
+    private NodeReferenceCollection $nodeReferenceCollection;
 
     protected function setUp(): void
     {
-        $this->nodeReferenceCollection = new NodeReferenceCollection([new NodeReference(1)]);
+        $this->nodeReferenceCollection = new NodeReferenceCollection(new NodeReference(1));
     }
 
     public function testIsCountable(): void
@@ -40,12 +37,5 @@ final class NodeReferenceCollectionTest extends TestCase
             $this->assertIsInt($key);
             $this->assertInstanceOf(NodeReference::class, $nodeReference);
         }
-    }
-
-    public function testCanOnlyBeCreatedFromArrayOfNodeReferenceObjects(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        new NodeReferenceCollection([null]);
     }
 }

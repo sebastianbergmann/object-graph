@@ -66,7 +66,7 @@ final class Node
             }
         }
 
-        $this->referencedNodes = new NodeReferenceCollection($referencedNodes);
+        $this->referencedNodes = new NodeReferenceCollection(...$referencedNodes);
 
         return $this->referencedNodes;
     }

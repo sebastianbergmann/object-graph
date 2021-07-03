@@ -16,10 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class NodeReferenceTest extends TestCase
 {
-    /**
-     * @var NodeReference
-     */
-    private $nodeReference;
+    private NodeReference $nodeReference;
 
     protected function setUp(): void
     {

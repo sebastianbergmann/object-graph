@@ -18,9 +18,12 @@ use function tempnam;
 use function unlink;
 
 /**
- * @codeCoverageIgnore
+ * @psalm-param array|object $objectGraph
  *
  * @throws InvalidArgumentException
+ * @throws RuntimeException
+ *
+ * @codeCoverageIgnore
  */
 function object_graph_dump(string $filename, $objectGraph): void
 {

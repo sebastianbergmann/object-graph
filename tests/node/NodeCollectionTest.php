@@ -21,10 +21,7 @@ use stdClass;
  */
 final class NodeCollectionTest extends TestCase
 {
-    /**
-     * @var NodeCollection
-     */
-    private $nodeCollection;
+    private NodeCollection $nodeCollection;
 
     protected function setUp(): void
     {
@@ -47,17 +44,11 @@ final class NodeCollectionTest extends TestCase
         }
     }
 
-    public function testCanOnlyBeCreatedFromArrayOfNodeObjects(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-
-        new NodeCollection([null]);
-    }
-
     public function testNodeThatDoesNotExistCannotBeRetrieved(): void
     {
         $this->expectException(OutOfBoundsException::class);
 
+        /* @noinspection UnusedFunctionResultInspection */
         $this->nodeCollection->findNodeById(2);
     }
 }

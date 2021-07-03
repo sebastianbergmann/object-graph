@@ -9,6 +9,7 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use function array_values;
 use function count;
 use Countable;
 use IteratorAggregate;
@@ -16,26 +17,13 @@ use IteratorAggregate;
 final class NodeReferenceCollection implements Countable, IteratorAggregate
 {
     /**
-     * @var NodeReference[]
+     * @psalm-var list<NodeReference>
      */
     private array $references;
 
-    /**
-     * @param NodeReference[] $references
-     *
-     * @throws InvalidArgumentException
-     */
-    public function __construct(array $references)
+    public function __construct(NodeReference ...$references)
     {
-        foreach ($references as $reference) {
-            if (!$reference instanceof NodeReference) {
-                throw new InvalidArgumentException(
-                    '$references must only contain NodeReference objects'
-                );
-            }
-        }
-
-        $this->references = $references;
+        $this->references = array_values($references);
     }
 
     public function count(): int
@@ -44,7 +32,7 @@ final class NodeReferenceCollection implements Countable, IteratorAggregate
     }
 
     /**
-     * @return NodeReference[]
+     * @psalm-return list<NodeReference>
      */
     public function getReferences(): array
     {
