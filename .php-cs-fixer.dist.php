@@ -25,8 +25,6 @@ $config->setFinder($finder)
             'operators' => [
                 '=' => 'align_single_space_minimal',
                 '=>' => 'align_single_space_minimal',
-                // Workaround for https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/5495
-                '|' => null,
             ],
         ],
         'blank_line_after_namespace' => true,
@@ -282,6 +280,9 @@ $config->setFinder($finder)
             ]
         ],
         'trim_array_spaces' => true,
+        'types_spaces' => [
+            'space' => 'none',
+        ],
         'unary_operator_spaces' => true,
         'visibility_required' => [
             'elements' => [
