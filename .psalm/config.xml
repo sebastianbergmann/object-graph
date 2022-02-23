@@ -6,7 +6,6 @@
     resolveFromConfigFile="false"
     cacheDirectory=".psalm/cache"
     errorBaseline=".psalm/baseline.xml"
-    totallyTyped="true"
     checkForThrowsDocblock="true"
     findUnusedVariablesAndParams="true"
 >
