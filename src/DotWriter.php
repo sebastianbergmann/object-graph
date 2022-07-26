@@ -47,7 +47,7 @@ EOT;
                 } elseif (is_array($value)) {
                     $value = $this->arrayToString($value);
                 } else {
-                    $value = $this->encodedVarExport($value);
+                    $value = $this->valueToString($value);
                 }
 
                 $attributes .= sprintf(
@@ -100,7 +100,7 @@ EOT;
             } elseif (is_array($value)) {
                 $value = $this->arrayToString($value);
             } else {
-                $value = $this->encodedVarExport($value);
+                $value = $this->valueToString($value);
             }
 
             $buffer .= sprintf(
@@ -113,7 +113,7 @@ EOT;
         return $buffer . '<tr><td align="left" valign="top" colspan="3">&#93;</td></tr></table>';
     }
 
-    private function encodedVarExport(mixed $value): string
+    private function valueToString(mixed $value): string
     {
         return str_replace(
             [
