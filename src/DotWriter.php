@@ -100,7 +100,7 @@ EOT;
             } elseif (is_array($value)) {
                 $value = $this->arrayToString($value);
             } else {
-                $value = $this->encodedVarExport($value, true);
+                $value = $this->encodedVarExport($value);
             }
 
             $buffer .= sprintf(
