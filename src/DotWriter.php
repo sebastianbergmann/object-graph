@@ -115,9 +115,21 @@ EOT;
 
     private function encodedVarExport(mixed $value): string
     {
-        $value = var_export($value, true);
-        $value = htmlspecialchars($value, ENT_SUBSTITUTE);
-
-        return str_replace(['{', '}', '|'], ['&#123;', '&#125;', '&#448;'], $value);
+        return str_replace(
+            [
+                '{',
+                '}',
+                '|',
+            ],
+            [
+                '&#123;',
+                '&#125;',
+                '&#448;',
+            ],
+            htmlspecialchars(
+                var_export($value, true),
+                ENT_SUBSTITUTE
+            )
+        );
     }
 }
