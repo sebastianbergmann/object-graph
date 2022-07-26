@@ -34,7 +34,7 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 * Initial release
 
-[3.0.0]: https://github.com/sebastianbergmann/object-graph/compare/2.0.0...master
+[3.0.0]: https://github.com/sebastianbergmann/object-graph/compare/2.0.0...main
 [2.0.0]: https://github.com/sebastianbergmann/object-graph/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/sebastianbergmann/object-graph/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/sebastianbergmann/object-graph/compare/1.0.0...1.0.1
