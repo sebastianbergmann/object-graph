@@ -1,25 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.x-dev@">
-  <file src="src/Builder.php">
-    <MixedAssignment occurrences="4">
-      <code>$attributes[$name]</code>
-      <code>$result[$key]</code>
-      <code>$value</code>
-      <code>$value</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/DotWriter.php">
-    <MixedAssignment occurrences="2">
-      <code>$value</code>
-      <code>$value</code>
-    </MixedAssignment>
-  </file>
-  <file src="src/node/Node.php">
-    <InvalidArgument occurrences="1">
-      <code>RecursiveArrayIterator::CHILD_ARRAYS_ONLY</code>
-    </InvalidArgument>
-    <MixedAssignment occurrences="1">
-      <code>$element</code>
-    </MixedAssignment>
-  </file>
-</files>
+<files psalm-version="4.x-dev@"/>
