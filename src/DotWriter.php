@@ -52,7 +52,7 @@ EOT;
 
                 $attributes .= sprintf(
                     '<tr><td align="left" valign="top">%s</td><td align="left" valign="top">%s</td></tr>',
-                    $name,
+                    $this->valueToString($name),
                     $value
                 );
             }
@@ -105,7 +105,7 @@ EOT;
 
             $buffer .= sprintf(
                 '<tr><td></td><td align="left" valign="top">%s =&gt; </td><td align="left" valign="top">%s</td></tr>',
-                $key,
+                $this->valueToString($key),
                 $value
             );
         }
