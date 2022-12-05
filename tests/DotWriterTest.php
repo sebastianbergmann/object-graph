@@ -27,14 +27,14 @@ final class DotWriterTest extends TestCase
 {
     public function testCanGenerateDotMarkupFromNodeCollection(): void
     {
-        $a      = new stdClass;
-        $a->foo = '<? bar';
-        $b      = new stdClass;
-        $b->bar = 'foo';
-        $a->bar = $b;
-        $a->baz = [[$b], true];
-        $a->qux = ['{', '}', '|'];
-        $a->fred = ['{' => 1, '}' => 2, '|' => 3];
+        $a          = new stdClass;
+        $a->foo     = '<? bar';
+        $b          = new stdClass;
+        $b->bar     = 'foo';
+        $a->bar     = $b;
+        $a->baz     = [[$b], true];
+        $a->qux     = ['{', '}', '|'];
+        $a->fred    = ['{' => 1, '}' => 2, '|' => 3];
         $a->{'{|}'} = 'thud';
 
         $nodes = (new Builder)->build($a);
