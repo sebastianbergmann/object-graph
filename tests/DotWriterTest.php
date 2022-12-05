@@ -34,6 +34,8 @@ final class DotWriterTest extends TestCase
         $a->bar = $b;
         $a->baz = [[$b], true];
         $a->qux = ['{', '}', '|'];
+        $a->fred = ['{' => 1, '}' => 2, '|' => 3];
+        $a->{'{|}'} = 'thud';
 
         $nodes = (new Builder)->build($a);
 
