@@ -2,7 +2,7 @@
 
 All notable changes to `sebastian/object-graph` are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-## [3.0.0] - 202Y-MM-DD
+## [3.0.0] - 2023-MM-DD
 
 ### Fixed
 
@@ -10,7 +10,7 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 ### Removed
 
-* This component is no longer supported on PHP 7.4
+* This component is no longer supported on PHP 7.4 and PHP 8.0
 
 ## [2.0.0] - 2021-02-24
 

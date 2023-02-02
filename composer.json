@@ -11,16 +11,17 @@
   ],
   "config": {
     "platform": {
-      "php": "8.0.0"
+      "php": "8.1.0"
     },
     "optimize-autoloader": true,
     "sort-packages": true
   },
   "prefer-stable": true,
+  "minimum-stability": "dev",
   "require": {
-    "php": ">=8.0",
-    "sebastian/object-enumerator": "^4.0",
-    "sebastian/object-reflector": "^2.0"
+    "php": ">=8.1",
+    "sebastian/object-enumerator": "^5.0",
+    "sebastian/object-reflector": "^3.0"
   },
   "autoload": {
     "classmap": [
