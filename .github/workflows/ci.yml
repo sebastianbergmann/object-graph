@@ -16,7 +16,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2"
 
-      - name: "Run friendsofphp/php-cs-fixer"
+      - name: "Run PHP-CS-Fixer"
         run: "./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose"
 
   type-checker:
@@ -28,10 +28,10 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2"
 
-      - name: "Update dependencies with composer"
+      - name: "Update dependencies with Composer"
         run: "./tools/composer update --no-ansi --no-interaction --no-progress --no-suggest"
 
-      - name: "Run vimeo/psalm"
+      - name: "Run Psalm"
         run: "./tools/psalm --config=.psalm/config.xml --no-progress --shepherd --show-info=false --stats"
 
   tests:
@@ -44,10 +44,7 @@ jobs:
         php-version:
           - "8.0"
           - "8.1"
-
-        dependencies:
-          - "lowest"
-          - "highest"
+          - "8.2"
 
     steps:
       - name: "Checkout"
@@ -59,25 +56,13 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: "pcov"
 
-      - name: "Cache dependencies installed with composer"
-        uses: "actions/cache@v1"
-        with:
-          path: "~/.composer/cache"
-          key: "php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}"
-          restore-keys: "php${{ matrix.php-version }}-composer-${{ matrix.dependencies }}-"
-
-      - name: "Install lowest dependencies with composer"
-        if: "matrix.dependencies == 'lowest'"
-        run: "./tools/composer update --no-ansi --no-interaction --no-progress --no-suggest --prefer-lowest"
-
-      - name: "Install highest dependencies with composer"
-        if: "matrix.dependencies == 'highest'"
+      - name: "Install highest with Composer"
         run: "./tools/composer update --no-ansi --no-interaction --no-progress --no-suggest"
 
-      - name: "Run tests with phpunit/phpunit"
+      - name: "Run tests with PHPUnit"
         run: "./tools/phpunit --coverage-clover=coverage.xml"
 
-      - name: "Send code coverage report to Codecov.io"
+      - name: "Send code coverage report to codecov.io"
         env:
           CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
         run: "bash <(curl -s https://codecov.io/bash) || true"
