@@ -24,7 +24,6 @@ final class Currency
 final class Money
 {
     private $amount;
-
     private $currency;
 
     public function __construct(int $amount, Currency $currency)
@@ -37,9 +36,7 @@ final class Money
 final class ShoppingCartItem
 {
     private $description;
-
     private $unitPrice;
-
     private $quantity;
 
     public function __construct(string $description, Money $unitPrice, int $quantity)
