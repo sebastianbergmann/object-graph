@@ -14,6 +14,9 @@ use function count;
 use Countable;
 use IteratorAggregate;
 
+/**
+ * @template-implements IteratorAggregate<int, NodeReference>
+ */
 final class NodeReferenceCollection implements Countable, IteratorAggregate
 {
     /**

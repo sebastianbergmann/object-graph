@@ -12,6 +12,9 @@ namespace SebastianBergmann\ObjectGraph;
 use function count;
 use Iterator;
 
+/**
+ * @template-implements Iterator<int, NodeReference>
+ */
 final class NodeReferenceCollectionIterator implements Iterator
 {
     /**
