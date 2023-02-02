@@ -18,7 +18,6 @@ final class NodeCollectionIterator implements Iterator
      * @psalm-var array<int,Node>
      */
     private array $nodes;
-
     private int $position = 1;
 
     public function __construct(NodeCollection $nodes)

@@ -16,11 +16,8 @@ use RecursiveIteratorIterator;
 final class Node
 {
     private int $id;
-
     private string $className;
-
     private array $attributes;
-
     private ?NodeReferenceCollection $referencedNodes = null;
 
     public function __construct(int $id, string $className, array $attributes)

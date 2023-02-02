@@ -9,12 +9,9 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
-use function get_class;
 use function is_array;
 use function is_object;
 use SebastianBergmann\ObjectEnumerator\Enumerator;
-use SebastianBergmann\ObjectEnumerator\Exception as ObjectEnumeratorException;
-use SebastianBergmann\ObjectReflector\Exception as ObjectReflectorException;
 use SebastianBergmann\ObjectReflector\ObjectReflector;
 use SplObjectStorage;
 
@@ -25,22 +22,12 @@ final class Builder
      */
     public function build(array|object $objectGraph): NodeCollection
     {
-        /** @psalm-var SplObjectStorage<object,int> */
+        /** @psalm-var SplObjectStorage<object,int> $map */
         $map   = new SplObjectStorage;
         $id    = 1;
         $nodes = [];
 
-        try {
-            $objects = (new Enumerator)->enumerate($objectGraph);
-            // @codeCoverageIgnoreStart
-        } catch (ObjectEnumeratorException $e) {
-            throw new RuntimeException(
-                $e->getMessage(),
-                (int) $e->getCode(),
-                $e
-            );
-            // @codeCoverageIgnoreEnd
-        }
+        $objects = (new Enumerator)->enumerate($objectGraph);
 
         foreach ($objects as $object) {
             $map[$object] = $id++;
@@ -49,17 +36,7 @@ final class Builder
         foreach ($objects as $object) {
             $attributes = [];
 
-            try {
-                $reflectedAttributes = (new ObjectReflector)->getAttributes($object);
-                // @codeCoverageIgnoreStart
-            } catch (ObjectReflectorException $e) {
-                throw new RuntimeException(
-                    $e->getMessage(),
-                    (int) $e->getCode(),
-                    $e
-                );
-                // @codeCoverageIgnoreEnd
-            }
+            $reflectedAttributes = (new ObjectReflector)->getProperties($object);
 
             foreach ($reflectedAttributes as $name => $value) {
                 if (is_array($value)) {
@@ -71,7 +48,7 @@ final class Builder
                 $attributes[$name] = $value;
             }
 
-            $nodes[] = new Node($map[$object], get_class($object), $attributes);
+            $nodes[] = new Node($map[$object], $object::class, $attributes);
         }
 
         return new NodeCollection(...$nodes);

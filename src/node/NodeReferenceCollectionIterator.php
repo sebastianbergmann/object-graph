@@ -18,7 +18,6 @@ final class NodeReferenceCollectionIterator implements Iterator
      * @psalm-var list<NodeReference>
      */
     private array $references;
-
     private int $position = 0;
 
     public function __construct(NodeReferenceCollection $references)
