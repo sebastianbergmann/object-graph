@@ -6,7 +6,7 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 ### Fixed
 
-* Fixed [#11](https://github.com/sebastianbergmann/object-graph/pull/11): Curly braces and pipe pipe characters are not escaped correctly
+* Fixed [#11](https://github.com/sebastianbergmann/object-graph/pull/11): Curly braces and pipe characters are not escaped correctly
 
 ### Removed
 
