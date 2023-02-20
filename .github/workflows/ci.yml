@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2"
+        uses: "actions/checkout@v3"
 
       - name: "Run PHP-CS-Fixer"
         run: "./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose"
@@ -26,7 +26,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v2"
+        uses: "actions/checkout@v3"
 
       - name: "Install dependencies with Composer"
         run: "./tools/composer update --no-ansi --no-interaction --no-progress --no-suggest"
