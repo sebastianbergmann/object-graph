@@ -28,7 +28,7 @@ jobs:
       - name: "Checkout"
         uses: "actions/checkout@v2"
 
-      - name: "Update dependencies with Composer"
+      - name: "Install dependencies with Composer"
         run: "./tools/composer update --no-ansi --no-interaction --no-progress --no-suggest"
 
       - name: "Run Psalm"
@@ -55,7 +55,7 @@ jobs:
           php-version: "${{ matrix.php-version }}"
           coverage: "pcov"
 
-      - name: "Install highest with Composer"
+      - name: "Install dependencies with Composer"
         run: "./tools/composer update --no-ansi --no-interaction --no-progress --no-suggest"
 
       - name: "Run tests with PHPUnit"
