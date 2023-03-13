@@ -6,44 +6,61 @@ on:
 
 name: "CI"
 
+permissions:
+  contents: read
+
 jobs:
   coding-guidelines:
-    name: "Coding Guidelines"
+    name: Coding Guidelines
 
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v3"
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: "Run PHP-CS-Fixer"
-        run: "./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose"
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: none
+
+      - name: Run PHP-CS-Fixer
+        run: ./tools/php-cs-fixer fix --dry-run --show-progress=dots --using-cache=no --verbose
 
   type-checker:
-    name: "Type Checker"
+    name: Type Checker
 
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
 
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v3"
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: "Install dependencies with Composer"
-        run: "./tools/composer update --no-ansi --no-interaction --no-progress --no-suggest"
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+          coverage: none
 
-      - name: "Run Psalm"
-        run: "./tools/psalm --config=.psalm/config.xml --no-progress --shepherd --show-info=false --stats"
+      - name: Install dependencies with Composer
+        run: ./tools/composer update --no-interaction --no-ansi --no-progress
+
+      - name: Run Psalm
+        run: ./tools/psalm --config=.psalm/config.xml --no-progress --shepherd --show-info=false --stats
 
   tests:
-    name: "Tests"
+    name: Tests
 
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
 
     strategy:
+      fail-fast: false
       matrix:
         php-version:
           - "8.1"
           - "8.2"
+          - "8.3"
 
     steps:
       - name: "Checkout"
@@ -56,12 +73,12 @@ jobs:
           coverage: "pcov"
 
       - name: "Install dependencies with Composer"
-        run: "./tools/composer update --no-ansi --no-interaction --no-progress --no-suggest"
+        run: "./tools/composer update --no-ansi --no-interaction --no-progress"
 
       - name: "Run tests with PHPUnit"
         run: "./tools/phpunit --coverage-clover=coverage.xml"
 
-      - name: "Send code coverage report to codecov.io"
+      - name: "Send code coverage report to Codecov.io"
         env:
           CODECOV_TOKEN: "${{ secrets.CODECOV_TOKEN }}"
         run: "bash <(curl -s https://codecov.io/bash) || true"
