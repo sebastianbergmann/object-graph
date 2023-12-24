@@ -53,7 +53,7 @@ EOT;
                 $attributes .= sprintf(
                     '<tr><td align="left" valign="top">%s</td><td align="left" valign="top">%s</td></tr>',
                     $this->valueToString($name),
-                    $value
+                    $value,
                 );
             }
 
@@ -63,7 +63,7 @@ EOT;
                 $node->id() === 1 ? 2 : 1,
                 $node->id(),
                 str_replace('\\', '\\\\', $node->className()),
-                $attributes
+                $attributes,
             );
         }
 
@@ -80,7 +80,7 @@ EOT;
                 $buffer .= sprintf(
                     '    object%d -> object%d;' . PHP_EOL,
                     $node->id(),
-                    $referencedNode->id()
+                    $referencedNode->id(),
                 );
 
                 $processedReferencedNodes[$referencedNode->id()] = true;
@@ -106,7 +106,7 @@ EOT;
             $buffer .= sprintf(
                 '<tr><td></td><td align="left" valign="top">%s =&gt; </td><td align="left" valign="top">%s</td></tr>',
                 $this->valueToString($key),
-                $value
+                $value,
             );
         }
 
@@ -128,8 +128,8 @@ EOT;
             ],
             htmlspecialchars(
                 var_export($value, true),
-                ENT_SUBSTITUTE
-            )
+                ENT_SUBSTITUTE,
+            ),
         );
     }
 }

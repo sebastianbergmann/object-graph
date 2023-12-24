@@ -48,8 +48,8 @@ function object_graph_dump(string $filename, array|object $objectGraph): void
                     'dot -T%s -o %s %s',
                     $format,
                     $filename,
-                    $tmpfile
-                )
+                    $tmpfile,
+                ),
             );
 
             unlink($tmpfile);
@@ -60,8 +60,8 @@ function object_graph_dump(string $filename, array|object $objectGraph): void
             throw new InvalidArgumentException(
                 sprintf(
                     'Unknown format "%s"',
-                    $format
-                )
+                    $format,
+                ),
             );
     }
 }

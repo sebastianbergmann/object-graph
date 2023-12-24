@@ -53,8 +53,8 @@ final class Node
         $iterator = new RecursiveIteratorIterator(
             new RecursiveArrayIterator(
                 $this->attributes,
-                RecursiveArrayIterator::CHILD_ARRAYS_ONLY
-            )
+                RecursiveArrayIterator::CHILD_ARRAYS_ONLY,
+            ),
         );
 
         foreach ($iterator as $element) {

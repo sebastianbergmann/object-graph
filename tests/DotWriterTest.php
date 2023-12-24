@@ -41,7 +41,7 @@ final class DotWriterTest extends TestCase
 
         $this->assertStringEqualsFile(
             __DIR__ . '/_fixture/graph.dot',
-            (new DotWriter)->render($nodes)
+            (new DotWriter)->render($nodes),
         );
     }
 }
