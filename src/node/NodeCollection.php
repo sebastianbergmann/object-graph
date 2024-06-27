@@ -19,7 +19,7 @@ use IteratorAggregate;
 final class NodeCollection implements Countable, IteratorAggregate
 {
     /**
-     * @psalm-var array<int,Node>
+     * @var array<int,Node>
      */
     private array $nodes = [];
 
@@ -36,7 +36,7 @@ final class NodeCollection implements Countable, IteratorAggregate
     }
 
     /**
-     * @psalm-return array<int,Node>
+     * @return array<int,Node>
      */
     public function asArray(): array
     {

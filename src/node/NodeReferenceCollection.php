@@ -20,7 +20,7 @@ use IteratorAggregate;
 final class NodeReferenceCollection implements Countable, IteratorAggregate
 {
     /**
-     * @psalm-var list<NodeReference>
+     * @var list<NodeReference>
      */
     private array $references;
 
@@ -35,7 +35,7 @@ final class NodeReferenceCollection implements Countable, IteratorAggregate
     }
 
     /**
-     * @psalm-return list<NodeReference>
+     * @return list<NodeReference>
      */
     public function asArray(): array
     {

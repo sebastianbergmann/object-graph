@@ -18,7 +18,7 @@ use Iterator;
 final class NodeCollectionIterator implements Iterator
 {
     /**
-     * @psalm-var array<int,Node>
+     * @var array<int,Node>
      */
     private array $nodes;
     private int $position = 1;

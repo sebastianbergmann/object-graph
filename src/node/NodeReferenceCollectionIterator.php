@@ -18,7 +18,7 @@ use Iterator;
 final class NodeReferenceCollectionIterator implements Iterator
 {
     /**
-     * @psalm-var list<NodeReference>
+     * @var list<NodeReference>
      */
     private array $references;
     private int $position = 0;

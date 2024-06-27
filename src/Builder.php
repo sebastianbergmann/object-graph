@@ -22,7 +22,7 @@ final class Builder
      */
     public function build(array|object $objectGraph): NodeCollection
     {
-        /** @psalm-var SplObjectStorage<object,int> $map */
+        /** @var SplObjectStorage<object,int> $map */
         $map   = new SplObjectStorage;
         $id    = 1;
         $nodes = [];
@@ -55,7 +55,7 @@ final class Builder
     }
 
     /**
-     * @psalm-param SplObjectStorage<object,int> $map
+     * @param SplObjectStorage<object,int> $map
      */
     private function processArray(array $array, SplObjectStorage $map): array
     {
