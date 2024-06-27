@@ -42,9 +42,9 @@ digraph G {
 EOT;
 
         foreach ($nodes as $node) {
-            $attributes = '';
+            $properties = '';
 
-            foreach ($node->attributes() as $name => $value) {
+            foreach ($node->properties() as $name => $value) {
                 if ($value instanceof NodeReference) {
                     $value = '#' . $value->id();
                 } elseif (is_array($value)) {
@@ -53,7 +53,7 @@ EOT;
                     $value = $this->valueToString($value);
                 }
 
-                $attributes .= sprintf(
+                $properties .= sprintf(
                     '<tr><td align="left" valign="top">%s</td><td align="left" valign="top">%s</td></tr>',
                     $this->valueToString($name),
                     $value,
@@ -66,7 +66,7 @@ EOT;
                 $node->id() === 1 ? 2 : 1,
                 $node->id(),
                 str_replace('\\', '\\\\', $node->className()),
-                $attributes,
+                $properties,
             );
         }
 

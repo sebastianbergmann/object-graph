@@ -43,7 +43,7 @@ final class BuilderTest extends TestCase
         $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(stdClass::class, $node->className());
-        $this->assertEquals(['foo' => 'bar'], $node->attributes());
+        $this->assertEquals(['foo' => 'bar'], $node->properties());
         $this->assertFalse($node->referencesNodes());
     }
 
@@ -59,7 +59,7 @@ final class BuilderTest extends TestCase
         $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(stdClass::class, $node->className());
-        $this->assertEquals(['foo' => 'bar'], $node->attributes());
+        $this->assertEquals(['foo' => 'bar'], $node->properties());
         $this->assertFalse($node->referencesNodes());
     }
 
@@ -75,7 +75,7 @@ final class BuilderTest extends TestCase
         $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(stdClass::class, $node->className());
-        $this->assertEquals(['foo' => 'bar'], $node->attributes());
+        $this->assertEquals(['foo' => 'bar'], $node->properties());
         $this->assertFalse($node->referencesNodes());
     }
 
@@ -91,7 +91,7 @@ final class BuilderTest extends TestCase
         $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(stdClass::class, $node->className());
-        $this->assertEquals(['foo' => 'bar'], $node->attributes());
+        $this->assertEquals(['foo' => 'bar'], $node->properties());
         $this->assertFalse($node->referencesNodes());
     }
 
@@ -111,10 +111,10 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(stdClass::class, $nodeOne->className());
-        $this->assertEquals(['foo' => 'bar'], $nodeOne->attributes());
+        $this->assertEquals(['foo' => 'bar'], $nodeOne->properties());
         $this->assertFalse($nodeOne->referencesNodes());
         $this->assertEquals(stdClass::class, $nodeTwo->className());
-        $this->assertEquals(['bar' => 'foo'], $nodeTwo->attributes());
+        $this->assertEquals(['bar' => 'foo'], $nodeTwo->properties());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
@@ -134,11 +134,11 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(stdClass::class, $nodeOne->className());
-        $this->assertEquals('bar', $nodeOne->attributes()['foo']);
-        $this->assertEquals($nodeTwo->id(), $nodeOne->attributes()['bar']->id());
+        $this->assertEquals('bar', $nodeOne->properties()['foo']);
+        $this->assertEquals($nodeTwo->id(), $nodeOne->properties()['bar']->id());
         $this->assertTrue($nodeOne->referencesNodes());
         $this->assertEquals(stdClass::class, $nodeTwo->className());
-        $this->assertEquals(['bar' => 'foo'], $nodeTwo->attributes());
+        $this->assertEquals(['bar' => 'foo'], $nodeTwo->properties());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
@@ -158,11 +158,11 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(stdClass::class, $nodeOne->className());
-        $this->assertEquals('bar', $nodeOne->attributes()['foo']);
-        $this->assertEquals($nodeTwo->id(), $nodeOne->attributes()['bar'][0]->id());
+        $this->assertEquals('bar', $nodeOne->properties()['foo']);
+        $this->assertEquals($nodeTwo->id(), $nodeOne->properties()['bar'][0]->id());
         $this->assertTrue($nodeOne->referencesNodes());
         $this->assertEquals(stdClass::class, $nodeTwo->className());
-        $this->assertEquals(['bar' => 'foo'], $nodeTwo->attributes());
+        $this->assertEquals(['bar' => 'foo'], $nodeTwo->properties());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
@@ -182,11 +182,11 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(stdClass::class, $nodeOne->className());
-        $this->assertEquals('bar', $nodeOne->attributes()['foo']);
-        $this->assertEquals($nodeTwo->id(), $nodeOne->attributes()['bar'][0][0]->id());
+        $this->assertEquals('bar', $nodeOne->properties()['foo']);
+        $this->assertEquals($nodeTwo->id(), $nodeOne->properties()['bar'][0][0]->id());
         $this->assertTrue($nodeOne->referencesNodes());
         $this->assertEquals(stdClass::class, $nodeTwo->className());
-        $this->assertEquals(['bar' => 'foo'], $nodeTwo->attributes());
+        $this->assertEquals(['bar' => 'foo'], $nodeTwo->properties());
         $this->assertFalse($nodeTwo->referencesNodes());
     }
 
@@ -209,12 +209,12 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertEquals(stdClass::class, $nodeOne->className());
-        $this->assertEquals($nodeTwo->id(), $nodeOne->attributes()['b']->id());
-        $this->assertEquals('bar', $nodeOne->attributes()['foo']);
+        $this->assertEquals($nodeTwo->id(), $nodeOne->properties()['b']->id());
+        $this->assertEquals('bar', $nodeOne->properties()['foo']);
         $this->assertTrue($nodeOne->referencesNodes());
         $this->assertEquals(stdClass::class, $nodeTwo->className());
-        $this->assertEquals($nodeOne->id(), $nodeTwo->attributes()['a']->id());
-        $this->assertEquals('foo', $nodeTwo->attributes()['bar']);
+        $this->assertEquals($nodeOne->id(), $nodeTwo->properties()['a']->id());
+        $this->assertEquals('foo', $nodeTwo->properties()['bar']);
         $this->assertTrue($nodeTwo->referencesNodes());
     }
 
@@ -229,7 +229,7 @@ final class BuilderTest extends TestCase
         $node = $nodeCollection->findNodeById(1);
 
         $this->assertEquals(ChildClass::class, $node->className());
-        $this->assertEquals(['SebastianBergmann\ObjectGraph\TestFixture\ParentClass::foo' => 'bar'], $node->attributes());
+        $this->assertEquals(['SebastianBergmann\ObjectGraph\TestFixture\ParentClass::foo' => 'bar'], $node->properties());
         $this->assertFalse($node->referencesNodes());
     }
 }

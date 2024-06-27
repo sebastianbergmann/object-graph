@@ -39,7 +39,7 @@ final class NodeTest extends TestCase
 
     public function testAttributesCanBeQueried(): void
     {
-        $this->assertEquals(['foo' => new NodeReference(2)], $this->node->attributes());
+        $this->assertEquals(['foo' => new NodeReference(2)], $this->node->properties());
     }
 
     public function testReferencedNodesCanBeQueried(): void

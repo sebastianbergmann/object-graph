@@ -24,25 +24,25 @@ final class Node
     /**
      * @var array<string, mixed>
      */
-    private array $attributes;
+    private array $properties;
     private ?NodeReferenceCollection $referencedNodes = null;
 
     /**
-     * @param array<string, mixed> $attributes
+     * @param array<string, mixed> $properties
      */
-    public function __construct(int $id, string $className, array $attributes)
+    public function __construct(int $id, string $className, array $properties)
     {
         $this->id         = $id;
         $this->className  = $className;
-        $this->attributes = $attributes;
+        $this->properties = $properties;
     }
 
     /**
      * @return array<string, mixed>
      */
-    public function attributes(): array
+    public function properties(): array
     {
-        return $this->attributes;
+        return $this->properties;
     }
 
     public function className(): string
@@ -65,7 +65,7 @@ final class Node
 
         $iterator = new RecursiveIteratorIterator(
             new RecursiveArrayIterator(
-                $this->attributes,
+                $this->properties,
                 RecursiveArrayIterator::CHILD_ARRAYS_ONLY,
             ),
         );

@@ -39,21 +39,21 @@ final class Builder
         }
 
         foreach ($objects as $object) {
-            $attributes = [];
+            $properties = [];
 
-            $reflectedAttributes = (new ObjectReflector)->getProperties($object);
+            $reflectedProperties = (new ObjectReflector)->getProperties($object);
 
-            foreach ($reflectedAttributes as $name => $value) {
+            foreach ($reflectedProperties as $name => $value) {
                 if (is_array($value)) {
                     $value = $this->processArray($value, $map);
                 } elseif (is_object($value)) {
                     $value = new NodeReference($map[$value]);
                 }
 
-                $attributes[$name] = $value;
+                $properties[$name] = $value;
             }
 
-            $nodes[] = new Node($map[$object], $object::class, $attributes);
+            $nodes[] = new Node($map[$object], $object::class, $properties);
         }
 
         return new NodeCollection(...$nodes);
