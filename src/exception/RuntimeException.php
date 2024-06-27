@@ -9,6 +9,9 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+/**
+ * @internal This class is not covered by the backward compatibility promise
+ */
 final class RuntimeException extends \RuntimeException implements Exception
 {
 }

@@ -9,6 +9,9 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+/**
+ * @internal This class is not covered by the backward compatibility promise
+ */
 final class NodeReference
 {
     private int $id;

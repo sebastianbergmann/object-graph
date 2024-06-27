@@ -9,6 +9,9 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+/**
+ * @internal This interface is not covered by the backward compatibility promise
+ */
 interface Exception
 {
 }

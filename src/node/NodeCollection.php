@@ -15,6 +15,8 @@ use IteratorAggregate;
 
 /**
  * @template-implements IteratorAggregate<int, Node>
+ *
+ * @internal This class is not covered by the backward compatibility promise
  */
 final class NodeCollection implements Countable, IteratorAggregate
 {

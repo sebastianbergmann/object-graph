@@ -13,6 +13,9 @@ use function count;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
 
+/**
+ * @internal This class is not covered by the backward compatibility promise
+ */
 final class Node
 {
     private int $id;

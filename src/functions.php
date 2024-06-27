@@ -24,6 +24,8 @@ use function unlink;
  * @throws RuntimeException
  *
  * @codeCoverageIgnore
+ *
+ * @no-named-arguments Parameter names are not covered by the backward compatibility promise
  */
 function object_graph_dump(string $filename, array|object $objectGraph): void
 {

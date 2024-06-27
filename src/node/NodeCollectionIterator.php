@@ -14,6 +14,8 @@ use Iterator;
 
 /**
  * @template-implements Iterator<int, Node>
+ *
+ * @internal This class is not covered by the backward compatibility promise
  */
 final class NodeCollectionIterator implements Iterator
 {

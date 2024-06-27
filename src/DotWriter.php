@@ -18,6 +18,9 @@ use function sprintf;
 use function str_replace;
 use function var_export;
 
+/**
+ * @internal This class is not covered by the backward compatibility promise
+ */
 final class DotWriter
 {
     /**

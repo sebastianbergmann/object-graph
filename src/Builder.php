@@ -15,6 +15,9 @@ use SebastianBergmann\ObjectEnumerator\Enumerator;
 use SebastianBergmann\ObjectReflector\ObjectReflector;
 use SplObjectStorage;
 
+/**
+ * @internal This class is not covered by the backward compatibility promise
+ */
 final class Builder
 {
     /**
