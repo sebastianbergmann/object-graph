@@ -9,11 +9,10 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \SebastianBergmann\ObjectGraph\NodeReference
- */
+#[CoversClass(NodeReference::class)]
 final class NodeReferenceTest extends TestCase
 {
     private NodeReference $nodeReference;

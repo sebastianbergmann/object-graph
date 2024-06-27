@@ -9,14 +9,13 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers \SebastianBergmann\ObjectGraph\NodeReferenceCollectionIterator
- *
- * @uses \SebastianBergmann\ObjectGraph\NodeReference
- * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollection
- */
+#[CoversClass(NodeReferenceCollectionIterator::class)]
+#[UsesClass(NodeReference::class)]
+#[UsesClass(NodeReferenceCollection::class)]
 final class NodeReferenceCollectionIteratorTest extends TestCase
 {
     public function testCanIterateNodeReferenceCollection(): void

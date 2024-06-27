@@ -9,15 +9,14 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-/**
- * @covers \SebastianBergmann\ObjectGraph\Node
- *
- * @uses \SebastianBergmann\ObjectGraph\NodeReference
- * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollection
- */
+#[CoversClass(Node::class)]
+#[UsesClass(NodeReference::class)]
+#[UsesClass(NodeReferenceCollection::class)]
 final class NodeTest extends TestCase
 {
     private Node $node;

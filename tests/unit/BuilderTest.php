@@ -9,19 +9,18 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use SebastianBergmann\ObjectGraph\TestFixture\ChildClass;
 use stdClass;
 
-/**
- * @covers \SebastianBergmann\ObjectGraph\Builder
- *
- * @uses \SebastianBergmann\ObjectGraph\Node
- * @uses \SebastianBergmann\ObjectGraph\NodeCollection
- * @uses \SebastianBergmann\ObjectGraph\NodeCollectionIterator
- * @uses \SebastianBergmann\ObjectGraph\NodeReference
- * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollection
- */
+#[CoversClass(Builder::class)]
+#[UsesClass(Node::class)]
+#[UsesClass(NodeCollection::class)]
+#[UsesClass(NodeCollectionIterator::class)]
+#[UsesClass(NodeReference::class)]
+#[UsesClass(NodeReferenceCollection::class)]
 final class BuilderTest extends TestCase
 {
     private Builder $builder;

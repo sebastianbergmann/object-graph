@@ -9,20 +9,19 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-/**
- * @covers \SebastianBergmann\ObjectGraph\DotWriter
- *
- * @uses \SebastianBergmann\ObjectGraph\Builder
- * @uses \SebastianBergmann\ObjectGraph\Node
- * @uses \SebastianBergmann\ObjectGraph\NodeCollection
- * @uses \SebastianBergmann\ObjectGraph\NodeCollectionIterator
- * @uses \SebastianBergmann\ObjectGraph\NodeReference
- * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollection
- * @uses \SebastianBergmann\ObjectGraph\NodeReferenceCollectionIterator
- */
+#[CoversClass(DotWriter::class)]
+#[UsesClass(Builder::class)]
+#[UsesClass(Node::class)]
+#[UsesClass(NodeCollection::class)]
+#[UsesClass(NodeCollectionIterator::class)]
+#[UsesClass(NodeReference::class)]
+#[UsesClass(NodeReferenceCollection::class)]
+#[UsesClass(NodeReferenceCollectionIterator::class)]
 final class DotWriterTest extends TestCase
 {
     public function testCanGenerateDotMarkupFromNodeCollection(): void
