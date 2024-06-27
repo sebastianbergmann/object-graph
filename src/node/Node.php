@@ -17,9 +17,16 @@ final class Node
 {
     private int $id;
     private string $className;
+
+    /**
+     * @var array<string, mixed>
+     */
     private array $attributes;
     private ?NodeReferenceCollection $referencedNodes = null;
 
+    /**
+     * @param array<string, mixed> $attributes
+     */
     public function __construct(int $id, string $className, array $attributes)
     {
         $this->id         = $id;
@@ -27,6 +34,9 @@ final class Node
         $this->attributes = $attributes;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function attributes(): array
     {
         return $this->attributes;

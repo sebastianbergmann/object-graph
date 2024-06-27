@@ -18,6 +18,8 @@ use SplObjectStorage;
 final class Builder
 {
     /**
+     * @param array<mixed>|object $objectGraph
+     *
      * @throws RuntimeException
      */
     public function build(array|object $objectGraph): NodeCollection
@@ -55,7 +57,10 @@ final class Builder
     }
 
     /**
+     * @param array<mixed>                 $array
      * @param SplObjectStorage<object,int> $map
+     *
+     * @return array<mixed>
      */
     private function processArray(array $array, SplObjectStorage $map): array
     {

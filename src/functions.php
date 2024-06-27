@@ -18,6 +18,8 @@ use function tempnam;
 use function unlink;
 
 /**
+ * @param array<mixed>|object $objectGraph
+ *
  * @throws InvalidArgumentException
  * @throws RuntimeException
  *

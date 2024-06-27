@@ -90,6 +90,9 @@ EOT;
         return $buffer . '}' . PHP_EOL;
     }
 
+    /**
+     * @param array<mixed> $array
+     */
     private function arrayToString(array $array): string
     {
         $buffer = '<table border="0" cellborder="0" cellpadding="1" bgcolor="white"><tr><td align="left" valign="top" colspan="3">&#91;</td></tr>';
