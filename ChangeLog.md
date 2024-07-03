@@ -2,6 +2,12 @@
 
 All notable changes to `sebastian/object-graph` are documented in this file using the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## [3.0.1] - 2024-07-03
+
+### Changed
+
+* This project now uses PHPStan instead of Psalm for static analysis
+
 ## [3.0.0] - 2023-02-19
 
 ### Fixed
@@ -34,6 +40,7 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 * Initial release
 
+[3.0.1]: https://github.com/sebastianbergmann/object-graph/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/sebastianbergmann/object-graph/compare/2.0.0...3.0.0
 [2.0.0]: https://github.com/sebastianbergmann/object-graph/compare/1.1.0...2.0.0
 [1.1.0]: https://github.com/sebastianbergmann/object-graph/compare/1.0.1...1.1.0
