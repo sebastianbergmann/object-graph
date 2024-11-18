@@ -35,7 +35,7 @@ final class NodeCollectionTest extends TestCase
         $this->assertCount(1, $this->nodeCollection);
     }
 
-    public function testIsIterateable(): void
+    public function testIsIterable(): void
     {
         foreach ($this->nodeCollection as $key => $node) {
             $this->assertInstanceOf(Node::class, $node);
