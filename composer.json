@@ -11,7 +11,7 @@
   ],
   "config": {
     "platform": {
-      "php": "8.1.0"
+      "php": "8.3.0"
     },
     "optimize-autoloader": true,
     "sort-packages": true
@@ -19,7 +19,7 @@
   "prefer-stable": true,
   "minimum-stability": "dev",
   "require": {
-    "php": ">=8.1",
+    "php": ">=8.3",
     "sebastian/object-enumerator": "^5.0",
     "sebastian/object-reflector": "^3.0"
   },
@@ -38,7 +38,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-main": "3.0-dev"
+      "dev-main": "4.0-dev"
     }
   }
 }
