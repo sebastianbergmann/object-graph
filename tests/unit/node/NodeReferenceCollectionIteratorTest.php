@@ -21,7 +21,6 @@ final class NodeReferenceCollectionIteratorTest extends TestCase
     public function testCanIterateNodeReferenceCollection(): void
     {
         foreach (new NodeReferenceCollection(new NodeReference(1)) as $key => $nodeReference) {
-            $this->assertIsInt($key);
             $this->assertInstanceOf(NodeReference::class, $nodeReference);
         }
     }

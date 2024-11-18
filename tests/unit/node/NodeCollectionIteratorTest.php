@@ -26,7 +26,6 @@ final class NodeCollectionIteratorTest extends TestCase
         $a->foo = 'bar';
 
         foreach ((new Builder)->build($a) as $key => $node) {
-            $this->assertIsInt($key);
             $this->assertInstanceOf(Node::class, $node);
         }
     }

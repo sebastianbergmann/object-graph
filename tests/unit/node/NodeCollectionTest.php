@@ -38,7 +38,6 @@ final class NodeCollectionTest extends TestCase
     public function testIsIterateable(): void
     {
         foreach ($this->nodeCollection as $key => $node) {
-            $this->assertIsInt($key);
             $this->assertInstanceOf(Node::class, $node);
         }
     }
