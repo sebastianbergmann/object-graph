@@ -1,6 +1,6 @@
 # sebastian/object-graph
 
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.1-8892BF.svg?style=flat-square)](https://php.net/)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%208.3-8892BF.svg?style=flat-square)](https://php.net/)
 [![Latest Stable Version](https://img.shields.io/packagist/v/sebastian/object-graph.svg?style=flat-square)](https://packagist.org/packages/sebastian/object-graph)
 [![CI Status](https://github.com/sebastianbergmann/object-graph/workflows/CI/badge.svg)](https://github.com/sebastianbergmann/object-graph/actions)
 [![Code Coverage](https://img.shields.io/codecov/c/github/sebastianbergmann/object-graph.svg?style=flat-square)](https://codecov.io/gh/sebastianbergmann/object-graph)
