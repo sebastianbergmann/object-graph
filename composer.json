@@ -23,6 +23,9 @@
     "sebastian/object-enumerator": "^8.1",
     "sebastian/object-reflector": "^6.1"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^13.4"
+  },
   "autoload": {
     "classmap": [
       "src/"
