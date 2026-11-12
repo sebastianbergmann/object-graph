@@ -9,6 +9,7 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use function assert;
 use function count;
 use Iterator;
 
@@ -47,6 +48,8 @@ final class NodeCollectionIterator implements Iterator
 
     public function current(): Node
     {
+        assert(isset($this->nodes[$this->position]));
+
         return $this->nodes[$this->position];
     }
 
