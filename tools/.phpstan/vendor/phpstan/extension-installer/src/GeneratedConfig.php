@@ -10,6 +10,20 @@ final class GeneratedConfig
 {
 
 	public const EXTENSIONS = array (
+  'ergebnis/phpstan-rules' => 
+  array (
+    'install_path' => '/usr/local/src/object-graph/tools/.phpstan/vendor/ergebnis/phpstan-rules',
+    'relative_install_path' => '../../../ergebnis/phpstan-rules',
+    'extra' => 
+    array (
+      'includes' => 
+      array (
+        0 => 'rules.neon',
+      ),
+    ),
+    'version' => '2.17.1',
+    'phpstanVersionConstraint' => '>=2.1.35.0-dev, <3.0.0.0-dev',
+  ),
   'phpstan/phpstan-strict-rules' => 
   array (
     'install_path' => '/usr/local/src/object-graph/tools/.phpstan/vendor/phpstan/phpstan-strict-rules',

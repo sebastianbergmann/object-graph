@@ -23,3 +23,10 @@ parameters:
         strictFunctionCalls: true
         switchConditionsMatchingType: true
         uselessCast: true
+
+    ergebnis:
+        allRules: false
+        final:
+            enabled: true
+        privateInFinalClass:
+            enabled: true

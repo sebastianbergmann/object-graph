@@ -8,4 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'PHPStan\\ExtensionInstaller\\' => array($vendorDir . '/phpstan/extension-installer/src'),
     'PHPStan\\' => array($vendorDir . '/phpstan/phpstan-strict-rules/src'),
+    'Ergebnis\\Version\\' => array($vendorDir . '/ergebnis/version/src'),
+    'Ergebnis\\PHPStan\\Rules\\' => array($vendorDir . '/ergebnis/phpstan-rules/src'),
 );

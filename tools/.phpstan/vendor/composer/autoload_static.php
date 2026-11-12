@@ -16,6 +16,11 @@ class ComposerStaticInitf51ad37e6a22e8ce91a11944a89ac8e9
             'PHPStan\\ExtensionInstaller\\' => 27,
             'PHPStan\\' => 8,
         ),
+        'E' =>
+        array (
+            'Ergebnis\\Version\\' => 17,
+            'Ergebnis\\PHPStan\\Rules\\' => 23,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -26,6 +31,14 @@ class ComposerStaticInitf51ad37e6a22e8ce91a11944a89ac8e9
         'PHPStan\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpstan-strict-rules/src',
+        ),
+        'Ergebnis\\Version\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/ergebnis/version/src',
+        ),
+        'Ergebnis\\PHPStan\\Rules\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/ergebnis/phpstan-rules/src',
         ),
     );
 
