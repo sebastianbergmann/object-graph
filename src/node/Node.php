@@ -22,13 +22,13 @@ final class Node
     private string $className;
 
     /**
-     * @var array<string, mixed>
+     * @var array<array-key, mixed>
      */
     private array $properties;
     private ?NodeReferenceCollection $referencedNodes = null;
 
     /**
-     * @param array<string, mixed> $properties
+     * @param array<array-key, mixed> $properties
      */
     public function __construct(int $id, string $className, array $properties)
     {
@@ -38,7 +38,7 @@ final class Node
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array<array-key, mixed>
      */
     public function properties(): array
     {
