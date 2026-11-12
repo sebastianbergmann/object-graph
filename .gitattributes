@@ -1,5 +1,4 @@
 /.github                export-ignore
-/.phive                 export-ignore
 /build                  export-ignore
 /example                export-ignore
 /tools                  export-ignore

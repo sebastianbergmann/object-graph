@@ -16,12 +16,7 @@
         </exec>
     </target>
 
-    <target name="update-tools">
-        <exec executable="phive" taskname="phive">
-            <arg value="--no-progress"/>
-            <arg value="update"/>
-        </exec>
-
+    <target name="update-tools" description="Update tools">
         <exec executable="${basedir}/tools/composer" taskname="composer">
             <arg value="self-update"/>
             <arg value="--no-interaction"/>
@@ -37,6 +32,19 @@
         </exec>
 
         <exec executable="${basedir}/tools/composer" dir="${basedir}/tools/.php-cs-fixer" taskname="composer">
+            <arg value="bump"/>
+            <arg value="--no-interaction"/>
+            <arg value="--no-ansi"/>
+        </exec>
+
+        <exec executable="${basedir}/tools/composer" dir="${basedir}/tools/.phpstan" taskname="composer">
+            <arg value="update"/>
+            <arg value="--no-interaction"/>
+            <arg value="--no-progress"/>
+            <arg value="--no-ansi"/>
+        </exec>
+
+        <exec executable="${basedir}/tools/composer" dir="${basedir}/tools/.phpstan" taskname="composer">
             <arg value="bump"/>
             <arg value="--no-interaction"/>
             <arg value="--no-ansi"/>
