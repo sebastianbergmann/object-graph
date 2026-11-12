@@ -28,12 +28,12 @@ final class NodeTest extends TestCase
 
     public function testCanBeIdentified(): void
     {
-        $this->assertEquals(1, $this->node->id());
+        $this->assertSame(1, $this->node->id());
     }
 
     public function testClassNameCanBeQueried(): void
     {
-        $this->assertEquals(stdClass::class, $this->node->className());
+        $this->assertSame(stdClass::class, $this->node->className());
     }
 
     public function testAttributesCanBeQueried(): void
