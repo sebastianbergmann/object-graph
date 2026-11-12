@@ -10,6 +10,25 @@ class ComposerStaticInitf51ad37e6a22e8ce91a11944a89ac8e9
         '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
     );
 
+    public static $prefixLengthsPsr4 = array (
+        'P' =>
+        array (
+            'PHPStan\\ExtensionInstaller\\' => 27,
+            'PHPStan\\' => 8,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'PHPStan\\ExtensionInstaller\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/phpstan/extension-installer/src',
+        ),
+        'PHPStan\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/phpstan/phpstan-strict-rules/src',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -17,6 +36,8 @@ class ComposerStaticInitf51ad37e6a22e8ce91a11944a89ac8e9
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf51ad37e6a22e8ce91a11944a89ac8e9::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf51ad37e6a22e8ce91a11944a89ac8e9::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitf51ad37e6a22e8ce91a11944a89ac8e9::$classMap;
 
         }, null, ClassLoader::class);
