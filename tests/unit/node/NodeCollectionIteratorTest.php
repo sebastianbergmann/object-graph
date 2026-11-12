@@ -9,6 +9,7 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use function iterator_to_array;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
@@ -25,8 +26,8 @@ final class NodeCollectionIteratorTest extends TestCase
         $a      = new stdClass;
         $a->foo = 'bar';
 
-        foreach ((new Builder)->build($a) as $key => $node) {
-            $this->assertInstanceOf(Node::class, $node);
-        }
+        $nodes = (new Builder)->build($a);
+
+        $this->assertSame([1 => $nodes->findNodeById(1)], iterator_to_array($nodes));
     }
 }

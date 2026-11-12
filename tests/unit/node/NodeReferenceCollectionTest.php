@@ -9,6 +9,7 @@
  */
 namespace SebastianBergmann\ObjectGraph;
 
+use function iterator_to_array;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
@@ -32,8 +33,6 @@ final class NodeReferenceCollectionTest extends TestCase
 
     public function testIsIterable(): void
     {
-        foreach ($this->nodeReferenceCollection as $key => $nodeReference) {
-            $this->assertInstanceOf(NodeReference::class, $nodeReference);
-        }
+        $this->assertEquals([new NodeReference(1)], iterator_to_array($this->nodeReferenceCollection));
     }
 }
