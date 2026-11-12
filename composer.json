@@ -20,8 +20,8 @@
   "minimum-stability": "dev",
   "require": {
     "php": ">=8.4",
-    "sebastian/object-enumerator": "^5.0",
-    "sebastian/object-reflector": "^3.0"
+    "sebastian/object-enumerator": "^8.1",
+    "sebastian/object-reflector": "^6.1"
   },
   "autoload": {
     "classmap": [
