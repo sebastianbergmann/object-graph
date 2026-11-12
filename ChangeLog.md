@@ -6,7 +6,7 @@ All notable changes to `sebastian/object-graph` are documented in this file usin
 
 ### Removed
 
-* This component is no longer supported on PHP 8.1 and PHP 8.2
+* This component is no longer supported on PHP 8.1, PHP 8.2, and PHP 8.3
 
 ## [3.0.1] - 2024-07-03
 

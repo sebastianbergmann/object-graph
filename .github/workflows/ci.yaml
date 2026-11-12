@@ -31,7 +31,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
-          php-version: 8.3
+          php-version: 8.4
           coverage: none
 
       - name: Run PHP-CS-Fixer
@@ -51,7 +51,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
-          php-version: 8.3
+          php-version: 8.4
           coverage: none
 
       - name: Install dependencies with Composer
@@ -69,7 +69,6 @@ jobs:
       fail-fast: false
       matrix:
         php-version:
-          - 8.3
           - 8.4
 
     steps:
