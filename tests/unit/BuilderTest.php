@@ -133,8 +133,7 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertSame(stdClass::class, $nodeOne->className());
-        $this->assertEquals('bar', $nodeOne->properties()['foo']);
-        $this->assertEquals($nodeTwo->id(), $nodeOne->properties()['bar']->id());
+        $this->assertEquals(['foo' => 'bar', 'bar' => new NodeReference($nodeTwo->id())], $nodeOne->properties());
         $this->assertTrue($nodeOne->referencesNodes());
         $this->assertSame(stdClass::class, $nodeTwo->className());
         $this->assertEquals(['bar' => 'foo'], $nodeTwo->properties());
@@ -157,8 +156,7 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertSame(stdClass::class, $nodeOne->className());
-        $this->assertEquals('bar', $nodeOne->properties()['foo']);
-        $this->assertEquals($nodeTwo->id(), $nodeOne->properties()['bar'][0]->id());
+        $this->assertEquals(['foo' => 'bar', 'bar' => [new NodeReference($nodeTwo->id())]], $nodeOne->properties());
         $this->assertTrue($nodeOne->referencesNodes());
         $this->assertSame(stdClass::class, $nodeTwo->className());
         $this->assertEquals(['bar' => 'foo'], $nodeTwo->properties());
@@ -181,8 +179,7 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertSame(stdClass::class, $nodeOne->className());
-        $this->assertEquals('bar', $nodeOne->properties()['foo']);
-        $this->assertEquals($nodeTwo->id(), $nodeOne->properties()['bar'][0][0]->id());
+        $this->assertEquals(['foo' => 'bar', 'bar' => [[new NodeReference($nodeTwo->id())]]], $nodeOne->properties());
         $this->assertTrue($nodeOne->referencesNodes());
         $this->assertSame(stdClass::class, $nodeTwo->className());
         $this->assertEquals(['bar' => 'foo'], $nodeTwo->properties());
@@ -208,12 +205,10 @@ final class BuilderTest extends TestCase
         $nodeTwo = $nodeCollection->findNodeById(2);
 
         $this->assertSame(stdClass::class, $nodeOne->className());
-        $this->assertEquals($nodeTwo->id(), $nodeOne->properties()['b']->id());
-        $this->assertEquals('bar', $nodeOne->properties()['foo']);
+        $this->assertEquals(['foo' => 'bar', 'b' => new NodeReference($nodeTwo->id())], $nodeOne->properties());
         $this->assertTrue($nodeOne->referencesNodes());
         $this->assertSame(stdClass::class, $nodeTwo->className());
-        $this->assertEquals($nodeOne->id(), $nodeTwo->properties()['a']->id());
-        $this->assertEquals('foo', $nodeTwo->properties()['bar']);
+        $this->assertEquals(['bar' => 'foo', 'a' => new NodeReference($nodeOne->id())], $nodeTwo->properties());
         $this->assertTrue($nodeTwo->referencesNodes());
     }
 
