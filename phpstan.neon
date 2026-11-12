@@ -1,8 +1,15 @@
 parameters:
-    level: 8
+    level: 10
+
     paths:
         - src
         - tests/unit
+
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    reportAlwaysTrueInLastCondition: true
+    reportPossiblyNonexistentConstantArrayOffset: true
+    reportPossiblyNonexistentGeneralArrayOffset: true
+    treatPhpDocTypesAsCertain: false
 
     strictRules:
         allRules: false
@@ -30,3 +37,6 @@ parameters:
             enabled: true
         privateInFinalClass:
             enabled: true
+
+includes:
+	- phar://phpstan.phar/conf/bleedingEdge.neon
